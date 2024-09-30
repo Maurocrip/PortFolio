@@ -29,6 +29,12 @@
     flex-direction: row;
 }
 
+.contenido img
+{
+    height: 250px;
+    width: auto;
+}
+
 .contenido .botones .codigo:hover
 {
     background-color: #00a361;

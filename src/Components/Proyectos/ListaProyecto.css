@@ -4,6 +4,15 @@
     list-style: none;
 }
 
+
+.Proyectos h1{
+    font-family: "Bruno Ace SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
 .listaProyectos img
 {
     height: 350px;

@@ -1,0 +1,19 @@
+
+.listaProyectos
+{
+    list-style: none;
+}
+
+.listaProyectos img
+{
+    height: 350px;
+    width: 350px;
+}
+
+.listaProyectos li
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    list-style: none;
+}

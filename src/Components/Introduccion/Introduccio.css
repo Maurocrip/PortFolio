@@ -1,0 +1,68 @@
+.Introduccion
+{
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    font-family: math;
+}
+.Introduccion-información{
+    display: flex;
+    padding: 0px 10px;
+    justify-content: space-evenly;
+}
+
+.Introduccion li{
+    list-style: none;
+    margin: 0px 15px;
+    border: solid 2px;
+    padding: 0px 15px;
+    border-radius: 15px;
+    background-color: black;
+    font-family: system-ui;
+    color: white;
+    font-size: large;
+    font-weight: 500;
+}
+
+.Introduccion li:hover{
+    color: #646cff;
+    a{
+        color: #646cff;
+    }
+}
+
+.Introduccion svg{
+    padding: 0 10px 0 0;
+}
+
+.Introduccion h1{
+    margin: 0;
+    font-size: xxx-large;
+}
+.Introduccion ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Introduccion img{
+    border-radius: 1000px;
+    border: solid 5px black;
+    width: auto;
+    height: auto;
+}
+
+.Introduccion-trabajo
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.Introduccion img{
+    height: 200px;
+    width: 200px;
+}
+
+.Introduccion a{
+    color: white;
+}

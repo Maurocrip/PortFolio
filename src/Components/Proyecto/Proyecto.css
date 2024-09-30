@@ -1,0 +1,51 @@
+.contenido
+{
+    display: flex;
+    border: solid 5px;
+    justify-content: center;
+    flex-direction: row;
+    margin: 20px;
+    padding: 10px;
+    max-width: 70%;
+}
+
+.contenido .textos
+{
+    padding: 0 10px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.contenido .textos label
+{
+    text-align: justify;
+}
+
+.contenido .botones
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.contenido .botones .codigo:hover
+{
+    background-color: #00a361;
+    box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+}
+
+.contenido .botones .pagina:hover
+{
+    background-color: #0089ffcc;
+    box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+}
+
+
+.contenido .botones a
+{
+ background-color: rgb(54, 54, 54);
+ color: white;
+ padding: 10px 20px 10px 20px;
+ border-radius: 10px;
+}

@@ -1,6 +1,6 @@
 import "./Introduccio.css";
 import me from "../../assets/yo.jpg";
-import pdf from "../../Public/Mauro Racioppi.pdf";
+import pdf from "../../Public/CV-Mauro Racioppi.pdf";
 import Swal from "sweetalert2";
 type Props = {};
 export default function ({}: Props) {

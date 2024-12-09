@@ -51,3 +51,22 @@ header{
     margin-bottom: 2%;
     flex-direction: column;
 }
+
+.Div-lenguagues
+{
+    position: absolute;
+    right: 2%;
+}
+
+.Button-lenguagues{
+    width: 50px;
+    padding: 0;
+    background: none;
+}
+
+.Button-lenguagues:hover{
+    border-color:transparent;
+}
+.Button-lenguagues:focus{
+    outline: none;
+}

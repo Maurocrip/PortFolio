@@ -1,74 +1,70 @@
+import { useContext } from "react";
+import { lenguagueContext } from "../../Services/Lenguague";
 import "./Header.css";
 
-type Props = {};
-export default function Header({}: Props) {
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, offset: number) => {
-    event.preventDefault(); // Evitar comportamiento por defecto del enlace
+export default function Header() {
+  const { spanish, setSpanish, titulos } = useContext(lenguagueContext);
 
-    const href = event.currentTarget.getAttribute("href");
-    if (href && href.startsWith("#")) {
-      const targetId = href.slice(1); // Remover el "#" para obtener el ID
-      const targetElement = document.getElementById(targetId);
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, offset: number) => {
+    event.preventDefault();
 
-      if (targetElement) {
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset + offset;
+    const targetId = event.currentTarget.getAttribute("href")?.slice(1);
+    const targetElement = targetId && document.getElementById(targetId);
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
+    if (targetElement) {
+      const offsetPosition =
+        targetElement.getBoundingClientRect().top + window.pageYOffset + offset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
+
+  const toggleLanguage = () => {
+    setSpanish(!spanish);
+  };
+
+  const menuItems = [
+    {
+      href: "#introduccion",
+      label: spanish ? titulos.informacion : titulos.information,
+      offset: -8000,
+    },
+    { href: "#AboutMe", label: spanish ? titulos.sobreMí : titulos.aboutMe, offset: -50 },
+    {
+      href: "#habilidades",
+      label: spanish ? titulos.tecnologías : titulos.technologies,
+      offset: -80,
+    },
+    { href: "#proyectos", label: spanish ? titulos.proyectos : titulos.proyects, offset: -80 },
+  ];
+
   return (
-    <>
-      <header>
-        <div className="header">
-          <ul>
-            <li>
-              <a
-                onClick={(e) => {
-                  handleClick(e, -8000);
-                }}
-                href="#introduccion"
-              >
-                Informacion
+    <header>
+      <div className="header">
+        <ul>
+          {menuItems.map(({ href, label, offset }) => (
+            <li key={href}>
+              <a href={href} onClick={(e) => handleClick(e, offset)}>
+                {label}
               </a>
             </li>
-            <li>
-              <a
-                onClick={(e) => {
-                  handleClick(e, -50);
-                }}
-                href="#AboutMe"
-              >
-                Sobre mi
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={(e) => {
-                  handleClick(e, -80);
-                }}
-                href="#habilidades"
-              >
-                Tecnologias
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={(e) => {
-                  handleClick(e, -80);
-                }}
-                href="#proyectos"
-              >
-                Proyectos
-              </a>
-            </li>
-          </ul>
+          ))}
+        </ul>
+        <div className="Div-lenguagues">
+          <button className="Button-lenguagues" onClick={toggleLanguage}>
+            <img
+              src={
+                spanish
+                  ? "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/800px-Flag_of_Argentina.svg.png?20120912082242"
+                  : "//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png"
+              }
+              alt={spanish ? "Cambiar a inglés" : "Switch to Spanish"}
+              width="99%"
+              height="99%"
+              onClick={toggleLanguage}
+            />
+          </button>
         </div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 }

@@ -1,15 +1,20 @@
+import { useContext } from "react";
 import "./Habilidades.css";
-type Props = {};
-export default function Habilidades({}: Props) {
+import { lenguagueContext } from "../../Services/Lenguague";
+
+export default function Habilidades() {
+  const { spanish, titulos, extrasTitulos } = useContext(lenguagueContext);
   return (
     <>
       <section id="habilidades">
         <div className="Habilidades">
-          <h1 style={{ fontSize: "40px" }}> Herramientas y habilidades</h1>
+          <h1 style={{ fontSize: "40px" }}>
+            {spanish ? titulos.tecnologías : titulos.technologies}
+          </h1>
           <ul className="lista">
             <li>
               <span className="_star_1xcwf_61">★</span>
-              <strong>Desarrollo Front-End -&gt;</strong>
+              <strong>{spanish ? extrasTitulos.frontEndEs : extrasTitulos.frontEndUs} -&gt;</strong>
               <div className="_icons_1xcwf_68">
                 <button
                   disabled={true}
@@ -188,7 +193,7 @@ export default function Habilidades({}: Props) {
             </li>
             <li>
               <span className="_star_1xcwf_61">★</span>
-              <strong>Desarrollo Back-End -&gt;</strong>
+              <strong>{spanish ? extrasTitulos.backEndEs : extrasTitulos.backEndUS} -&gt;</strong>
               <div className="_icons_1xcwf_68">
                 <button
                   disabled={true}
@@ -420,7 +425,7 @@ export default function Habilidades({}: Props) {
             </li>
             <li>
               <span className="_star_1xcwf_61">★</span>
-              <strong>Gestión de Bases de Datos -&gt;</strong>
+              <strong>{spanish ? extrasTitulos.baseDatos : extrasTitulos.dataBase} -&gt;</strong>
               <div className="_icons_1xcwf_68">
                 <button
                   disabled={true}
@@ -575,7 +580,9 @@ export default function Habilidades({}: Props) {
             </li>
             <li>
               <span className="_star_1xcwf_61">★</span>
-              <strong>Herramientas y Tecnologías -&gt;</strong>
+              <strong>
+                {spanish ? extrasTitulos.tecnologiaHerramientas : extrasTitulos.tacnologyTools}-&gt;
+              </strong>
               <div className="_icons_1xcwf_68">
                 <button
                   disabled={true}

@@ -1,7 +1,15 @@
-export default interface proyecto {
+
+  interface IProyecto {
+    ingles: IProyectInformation;
+    español: IProyectInformation;
+    image?: string;
+    pagina: string;
+    codigo: string;
+  }
+
+  interface IProyectInformation {
     titulo: string;
     descripcion: string;
-    image?: string;
-    Codigo: string;
-    Pagina: string;
   }
+
+  export default IProyecto

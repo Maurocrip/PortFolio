@@ -2,12 +2,14 @@ import "./Introduccio.css";
 import me from "../../assets/yo.jpg";
 import pdf from "../../Public/CV-Mauro Racioppi.pdf";
 import Swal from "sweetalert2";
-type Props = {};
-export default function ({}: Props) {
+import { lenguagueContext } from "../../Services/Lenguague";
+import { useContext } from "react";
+
+export default function () {
   function HandlePdf() {
     window.open(pdf, "_blank");
   }
-
+  const { spanish, information, extrasTitulos } = useContext(lenguagueContext);
   function HandleEmail() {
     navigator.clipboard.writeText("mauroracioppi@gmail.com").then(() => {
       Swal.mixin({
@@ -33,9 +35,11 @@ export default function ({}: Props) {
           <div className="Introduccion-información">
             <div className="Introduccion-trabajo">
               <h1>Mauro Hernan Racioppi</h1>
-              <h2 style={{ color: "#008acf", fontSize: "xx-large" }}>Desarrollador Front-End</h2>
+              <h2 style={{ color: "#008acf", fontSize: "xx-large" }}>
+                {spanish ? information.subTitulo : information.subTitle}
+              </h2>
               <strong style={{ color: "#e5cd50", fontSize: "larger" }}>
-                Joven desarrollador, apacionado por la informatica.
+                {spanish ? information.descripción : information.description}
               </strong>
             </div>
             <div>
@@ -102,7 +106,7 @@ export default function ({}: Props) {
                     />
                   </g>
                 </svg>
-                Curriculum
+                {spanish ? extrasTitulos.curriculum : extrasTitulos.resume}
               </li>
               <li onClick={HandleEmail}>
                 <svg
@@ -124,7 +128,7 @@ export default function ({}: Props) {
                     <path d="M19.996 14a2 2 0 1 1-4 0a2 2 0 0 1 4 0" />
                   </g>
                 </svg>
-                Email
+                {spanish ? extrasTitulos.correo : extrasTitulos.mail}
               </li>
             </ul>
           </div>

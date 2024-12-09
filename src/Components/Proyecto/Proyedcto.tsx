@@ -1,8 +1,17 @@
-import me from "../../assets/yo.jpg";
-import proyecto from "../../Interfaces/IProyecto";
+import { useContext } from "react";
 import "./Proyecto.css";
+import { lenguagueContext } from "../../Services/Lenguague";
 
-export default function Proyecto({ titulo, descripcion, image = me, Codigo, Pagina }: proyecto) {
+type props = {
+  titulo: string;
+  descripcion: string;
+  image?: string;
+  Codigo: string;
+  Pagina: string;
+};
+
+export default function Proyecto({ titulo, descripcion, image, Codigo, Pagina }: props) {
+  const { spanish } = useContext(lenguagueContext);
   return (
     <>
       <div className="contenido">
@@ -12,10 +21,10 @@ export default function Proyecto({ titulo, descripcion, image = me, Codigo, Pagi
           <label>{descripcion}</label>
           <div className="botones">
             <a className="codigo" href={Codigo} target="_blank">
-              Codigo
+              {spanish ? "Codigo" : "Code"}
             </a>
             <a className="pagina" href={Pagina} target="_blank">
-              Pagina
+              {spanish ? "Pagina" : "Page"}
             </a>
           </div>
         </div>

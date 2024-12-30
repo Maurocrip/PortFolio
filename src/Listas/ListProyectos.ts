@@ -25,7 +25,7 @@ export let listaProyectos: Array<proyecto> = [
         descripcion:
           "Simulates the purchase of products from a store, where you can add products to a cart, remove them from the cart, increase or decrease their quantity and filter the products."},
       codigo: "https://github.com/Maurocrip/Carrito-de-compra",
-      pagina: "https://to-do-list-bdbk.vercel.app",
+      pagina: "https://carritodelacompra.vercel.app",
       image: carrito,
     },
     {

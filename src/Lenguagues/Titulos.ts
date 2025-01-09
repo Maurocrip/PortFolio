@@ -8,6 +8,6 @@ export let titulos :  Titulos = {
     sobreMí: "Sobre mí",
     tecnologías: "Tecnologías y habilidades",
     technologies: "Technologies and skills",
-    proyectos: "Proyectos academicos y personales",
+    proyectos: "Proyectos",
     proyects: "Academic and personal projects",
 }

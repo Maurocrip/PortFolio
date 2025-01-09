@@ -1,3 +1,13 @@
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    display: flex;
+    margin-bottom: 2%;
+    flex-direction: column;
+}
+
 .header
 {
     display: flex;
@@ -10,7 +20,7 @@
 
 .header li{
     list-style: none;
-    padding: 0px 15px;
+    padding: 0px 40px;
 }
 
 .header ul{
@@ -21,7 +31,7 @@
 
 .header a{
     list-style: none;
-    font-size: large;
+    font-size: larger;
     color: white;
     position: relative;
     padding-bottom: 8px;
@@ -37,19 +47,10 @@
     background-color: rgb(255, 255, 255);
     transition: all 0.4s ease;
     transform: translateX(-50%);
-  }
-  
-  .header ul li a:hover::after {
-    width: 100%;
-  }
+}
 
-header{
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    display: flex;
-    margin-bottom: 2%;
-    flex-direction: column;
+.header ul li a:hover::after {
+width: 100%;
 }
 
 .Div-lenguagues
@@ -67,6 +68,47 @@ header{
 .Button-lenguagues:hover{
     border-color:transparent;
 }
+
 .Button-lenguagues:focus{
     outline: none;
+}
+
+@media (max-width: 950px) {
+    .header li{
+        padding: 0px 20px;
+    }
+}
+@media (max-width: 600px) {
+    .header li{
+        padding: 0px 10px;
+    }
+}
+@media (max-width: 770px) {
+    .header a{
+        font-size: medium;
+    }
+}
+
+@media (max-width: 500px) {
+    .Div-lenguagues {
+        position: inherit;
+    }
+
+    .header a {
+        font-size: x-small;
+    }
+
+    .Button-lenguagues {
+        width: 30px;
+        display: flex;
+    }
+
+    .header li{
+        display: flex;
+        padding: 0px 5px;
+        align-items: center;
+    }
+    .header {
+        width: 98%;
+    }
 }

@@ -40,6 +40,12 @@
     font-size: xxx-large;
     font-family: math;
 }
+
+.Introduccion h2{
+    color: #008acf; 
+    font-size: xx-large;
+}
+
 .Introduccion ul{
     display: flex;
     justify-content: space-evenly;
@@ -59,6 +65,11 @@
     align-items: start;
 }
 
+.Introduccion strong{
+    color: #e5cd50;
+     font-Size: larger
+}
+
 .Introduccion img{
     height: 200px;
     width: 200px;
@@ -66,4 +77,54 @@
 
 .Introduccion a{
     color: white;
+}
+
+@media (max-width: 800px)
+{
+    .Introduccion h1{
+        font-size: xx-large;
+    }
+
+    .Introduccion img{
+        height: 150px;
+        width: 150px;
+    }
+
+    .Introduccion h2{
+        font-size: x-large;
+    }
+
+    .Introduccion svg{
+        width: 15px;
+    height: 15px;
+    }
+
+    .Introduccion li{
+        margin: 0px 10px;
+        padding: 0px 10px;
+    }
+}
+
+@media (max-width: 650px)
+{
+    .Introduccion h1{
+        font-size: x-large;
+    }
+
+    .Introduccion h2{
+        font-size: large;
+    }
+
+    .Introduccion strong{
+         font-Size: medium;
+    }
+
+    .Introduccion img{
+        height: 100px;
+        width: 100px;
+    }
+
+    .Introduccion ul{
+padding: 0;
+    }
 }

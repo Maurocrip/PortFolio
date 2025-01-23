@@ -26,9 +26,15 @@
     padding: 10px;
     margin: 20px 10px;
     width: 45%;
+    max-width: 500px;
     box-shadow: 0 2px 4px #0000001a;
     justify-content: flex-start;
 }
+
+.Habilidades h1{
+    font-Size: 40px
+}
+
 ._star_1xcwf_61 {
     color: gold;
     font-size: 14px;
@@ -53,4 +59,29 @@
     border: 0;
     font-size: 0;
     cursor: default;
+}
+
+@media (max-width: 950px)
+{
+    .Habilidades .lista li
+    {
+        width: 70%;
+    }
+
+    .Habilidades h1{
+        font-Size: 35px
+    }
+}
+
+@media (max-width: 650px)
+{
+    .Habilidades .lista li
+    {
+        width: 85%;
+    }
+
+    .Habilidades h1{
+        font-Size: 30px
+    }
+
 }

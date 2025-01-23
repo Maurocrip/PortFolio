@@ -8,7 +8,7 @@ export default function Habilidades() {
     <>
       <section id="habilidades">
         <div className="Habilidades">
-          <h1 style={{ fontSize: "40px" }}>
+          <h1>
             {spanish ? titulos.tecnologías : titulos.technologies}
           </h1>
           <ul className="lista">

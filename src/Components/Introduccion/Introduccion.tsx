@@ -35,10 +35,10 @@ export default function () {
           <div className="Introduccion-información">
             <div className="Introduccion-trabajo">
               <h1>Mauro Hernan Racioppi</h1>
-              <h2 style={{ color: "#008acf", fontSize: "xx-large" }}>
+              <h2>
                 {spanish ? information.subTitulo : information.subTitle}
               </h2>
-              <strong style={{ color: "#e5cd50", fontSize: "larger" }}>
+              <strong>
                 {spanish ? information.descripción : information.description}
               </strong>
             </div>

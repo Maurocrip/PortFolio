@@ -1,6 +1,6 @@
 import "./Introduccio.css";
 import me from "../../assets/yo.jpg";
-import pdf from "../../Public/CV-Mauro Racioppi.pdf";
+import pdf from "../../Public/Curricul-Mauro Racioppi.pdf";
 import Swal from "sweetalert2";
 import { lenguagueContext } from "../../Services/Lenguague";
 import { useContext } from "react";

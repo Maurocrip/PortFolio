@@ -125,6 +125,14 @@
     }
 
     .Introduccion ul{
-padding: 0;
+        padding: 0;
+        justify-content: center;
+    }
+    .Introduccion ul li{
+        font-size: medium;
+        margin: 0px 5px;
+    }
+    .Introduccion ul li svg{
+        padding: 0px 5px;
     }
 }

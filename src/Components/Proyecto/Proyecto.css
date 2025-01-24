@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+    margin-top: 15px;
 }
 
 .contenido img
@@ -54,4 +55,27 @@
  color: white;
  padding: 10px 20px 10px 20px;
  border-radius: 10px;
+}
+
+@media (max-width: 850px)
+{
+    .contenido {
+        flex-direction: column;
+    }  
+}
+
+@media (max-width: 500px)
+{
+    .listaProyectos {
+        padding: 0;
+    }    
+    .contenido .textos label {
+        font-size: small;
+    } 
+    .contenido .textos {
+        padding: 0 5px 0 5px;
+    } 
+    .contenido .textos h2 {
+        font-size: large;
+    } 
 }

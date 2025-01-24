@@ -7,7 +7,7 @@ export default function Contacto() {
   return (
     <>
       <footer>
-        <label>{spanish ? extrasTitulos.telefono : extrasTitulos.phone}: 011 6761-4244</label>
+        <label>{spanish ? extrasTitulos.telefono : extrasTitulos.phone}: +54 011 6761-4244</label>
         <label>
           {spanish ? extrasTitulos.correo : extrasTitulos.mail}: mauroracioppi@gmail.com
         </label>

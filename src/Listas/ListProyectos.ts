@@ -2,6 +2,8 @@ import proyecto from "../Interfaces/IProyecto";
 import todo from "../assets/ToDo.jpeg";
 import carrito from "../assets/Carrito.jpeg";
 import clinica from "../assets/clinicaOnline.jpeg";
+import SalaJuegos from "../assets/SalaDeJuegos.jpeg";
+
 
 export let listaProyectos: Array<proyecto> = [
     {
@@ -39,5 +41,17 @@ export let listaProyectos: Array<proyecto> = [
       codigo: "https://github.com/Maurocrip/To-do-list",
       pagina: "https://to-do-list-sigma-lime.vercel.app",
       image: todo,
+    },
+    {
+      español:{
+        titulo: "Sala De Juegos",
+      descripcion:
+        "Una pagina web que simula una sala de juegos, en la cual te tendras que loguear y al ingresar podras accerder a 4 tipos de juegos: ahorcado, una trivia de preguntas, mayor o menos y el blackjact"},
+      ingles:{
+        titulo: "Game Room",
+        descripcion: "A website that simulates a games room, in which you will have to log in and upon entering you will be able to access 4 types of games: hangman, a trivia question, greater or less and blackjack.",},
+      codigo: "https://github.com/Maurocrip/Sala-de-Juegos",
+      pagina: "https://sala-de-juegos-2a66d.web.app/login",
+      image: SalaJuegos,
     },
 ]

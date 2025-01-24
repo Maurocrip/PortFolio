@@ -77,15 +77,29 @@ width: 100%;
     .header li{
         padding: 0px 20px;
     }
-}
-@media (max-width: 600px) {
-    .header li{
-        padding: 0px 10px;
+
+    .header
+    {
+        justify-content: flex-start;
+    }
+
+    .header ul {
+        width: 90%;
+        justify-content: space-around;
     }
 }
 @media (max-width: 770px) {
     .header a{
         font-size: medium;
+    }
+}
+
+@media (max-width: 600px) {
+    .header li{
+        padding: 0px 10px;
+    }
+    .header a{
+        font-size: small;
     }
 }
 

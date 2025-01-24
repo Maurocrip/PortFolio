@@ -1,9 +1,24 @@
-.AboutMe h1{
+
+.centrarAboutMe
+{
+    display: flex;
+    justify-content: center;
+}
+.centrarAboutMe .AboutMe
+{
+    padding: 10px;
+    width: 80%;
+}
+
+.centrarAboutMe .AboutMe h1{
     margin: 0;
     padding: 20px;
     text-align: center;
 }
-.texto{
+
+.centrarAboutMe .AboutMe .texto 
+{
+    padding: 0px 15px;
     background: #336e9957;
     border: solid;
     border-radius: 10px;
@@ -11,13 +26,19 @@
     font-optical-sizing: auto;
     font-style: normal;
 }
-.AboutMe
+
+@media (max-width: 650px)
 {
-    padding: 10px;
-    width: 80%;
-}
-.centrarAboutMe
-{
-    display: flex;
-    justify-content: center;
+
+    .AboutMe
+    {
+        padding: 10px;
+        width: auto;
+    }
+
+    .centrarAboutMe .AboutMe .texto h3
+    {
+        font-size: small;
+        text-align: justify;
+    }
 }

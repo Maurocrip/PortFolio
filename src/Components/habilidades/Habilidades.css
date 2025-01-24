@@ -78,10 +78,24 @@
     .Habilidades .lista li
     {
         width: 85%;
+        margin: 10px 0px;
     }
 
     .Habilidades h1{
         font-Size: 30px
     }
 
+    .Habilidades .lista li strong {
+        font-size: 11px;
+        margin-right: 9px;
+    }
+
+    ._icons_1xcwf_68 {
+        gap: 15px;
+    }
+
+    .Habilidades svg {
+        height: 20px;
+        width: 20px;
+    }
 }

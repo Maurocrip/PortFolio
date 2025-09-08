@@ -1,0 +1,130 @@
+.proyectos-section {
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  padding: 0px 20px;
+  position: relative;
+  min-height: 750px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.proyectos-section h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #e6f1ff;
+}
+
+.proyectos-mosaico {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: 250px; /* Altura base para las filas */
+  grid-auto-flow: dense; /* Ayuda a rellenar huecos */
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.proyecto-card {
+  position: relative; /* Necesario para posicionar el texto informativo */
+  overflow: hidden; /* Oculta el texto informativo que se sale */
+  background: #112240;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 0; /* Quitamos el padding para que la imagen ocupe todo */
+  cursor: pointer; /* Indica que la tarjeta es clickeable */
+}
+
+.proyecto-card:hover {
+  transform: translateY(-5px); /* Elevación sutil al hacer hover */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.proyecto-card.is-hiding {
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.card-grande {
+  grid-row: span 2; /* Ocupa dos filas de alto */
+}
+
+.card-ancha {
+  grid-column: span 2; /* Ocupa dos columnas de ancho */
+}
+
+.proyecto-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra toda la tarjeta */
+  border-radius: 8px;
+  margin-bottom: 0; /* Ya no es necesario */
+  background-color: #f0f4fa;
+}
+
+.proyecto-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.proyecto-card:hover .proyecto-info {
+  transform: translateY(0);
+}
+
+.proyecto-card h3 {
+  margin: 12px 0 8px;
+  color: #61dafb;
+}
+
+.proyecto-card p {
+  color: #a8b2d1;
+  font-size: 1rem;
+  /* Estilos para truncar el texto */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Número de líneas a mostrar */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .proyectos-mosaico {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .card-ancha {
+    grid-column: span 1; /* En pantallas más pequeñas, no expandir */
+  }
+}
+
+@media (max-width: 768px) {
+  .proyectos-mosaico {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+    grid-auto-rows: 250px;
+  }
+  .card-grande, .card-ancha {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .proyectos-section {
+    padding: 20px 0;
+  }
+  .proyectos-mosaico {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .proyecto-card {
+    padding: 0; /* Mantenemos el padding en 0 para que la imagen ocupe todo */
+  }
+}

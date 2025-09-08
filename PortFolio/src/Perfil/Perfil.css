@@ -1,0 +1,132 @@
+.perfil-section {
+    height: 700px;
+    background: #001d30;
+}
+
+.perfil-section .container {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  position: relative; 
+}
+
+/* ----------------SOBREMI----------------------------*/
+.perfil-section .container .lado-izquierdo {
+  background-color: #1e0644;
+  opacity: 0;
+}
+
+.perfil-section .container .lado-izquierdo .perfil-sobreMi {
+    line-height: 50px;
+    display: flex;
+    font-size: larger;
+    height: 100%;
+    font-family: Roboto Mono, monospace;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfil-section .container .lado-izquierdo .perfil-sobreMi h1{
+    margin: 15px 0px;
+    font-size: xxx-large;
+}
+.perfil-section .container .lado-izquierdo .perfil-sobreMi label{
+    width: clamp(750px, 70%, 1000px);
+}
+
+/*----------------------------------------------------------------------------*/
+
+/* -------------------------DIVISOR----------------------------*/
+.perfil-section .container .divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background-color: #249cbf;
+  z-index: 10;
+}
+
+.perfil-section .container .divider .perfil-foto{
+    width: 250px;
+    left: -123px;
+    top: 31%;
+    position: absolute;
+    height: auto;
+    object-fit: cover;
+    border: solid 5px #249cbf;
+}
+
+.perfil-section .container .divider .desplazado
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 10px;
+    touch-action: pan-y;
+    justify-content: space-between;
+    opacity: 0;
+}
+.perfil-section .container .divider .desplazado label
+{
+    font-size: 51px;
+    background: rgba(0, 0, 0, 0.52);
+    touch-action: pan-y;
+    width: 90px;
+}
+/*----------------------------------------------------------------------------*/
+
+/* -------------------------PERFIL----------------------------*/
+.perfil-section .container .perfil-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.perfil-section .container .perfil-info .video-background
+{
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    object-fit: cover;
+}
+
+.perfil-section .container .perfil-info .mask{
+    z-index: 1;
+    padding-left: 200px;
+    display: flex;
+    height: 100%;
+    background-color: rgb(0 0 0 / 63%);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.perfil-section .container .perfil-info .mask .split {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: Consolas;
+}
+
+.perfil-section .container .perfil-info .mask .split .perfil-nombre{
+    margin: 10px 0px;
+    line-height: 5rem;
+    font-size: 5dvw;
+    color: #e6f1ff;
+}
+
+.perfil-section .container .perfil-info .mask .split .perfil-titulo {
+    font-size: 2.3rem;
+    color: #61dafb;
+    margin: 10px 0px;
+    line-height: 1.5;
+}
+
+.perfil-section .container .perfil-info .mask .split .perfil-descripcion {
+    font-size: 1.9rem;
+    color: #ffd500;
+    line-height: 2;
+}
+/*----------------------------------------------------------------------------*/

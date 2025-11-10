@@ -1,103 +1,79 @@
 import './Proyectos.css';
 import ProyectoCard from './ProyectoCard';
-import { useState, useRef } from 'react';
-import ProyectoDetalle, { type ProyectoCompleto } from '../ProyectoDetalle/ProyectoDetalle';
+import clinicaFoto from '../assets/ClinicaOnline.png';
+import carritoOnlineFoto from '../assets/Carrito.jpeg';
+import todoListFoto from '../assets/ToDoList.png';
+import salaJuegosFoto from '../assets/SalaDeJuegos.jpeg';
+
+export interface ProyectoCompleto {
+  titulo: string;
+  descripcion: string;
+  imagen: string;
+  pagina: string;
+  codigo: string;
+  height: number;
+}
 
 const proyectos: ProyectoCompleto[] = [
   { 
-    titulo: 'Proyecto 1', 
-    descripcion: 'Una aplicación web interactiva que permite a los usuarios visualizar datos complejos de una manera sencilla y elegante. Se utilizó GSAP para animaciones fluidas y una experiencia de usuario dinámica.', 
-    imagen: 'https://images.dog.ceo/breeds/puggle/IMG_074532.jpg',
-    imagenes: ['https://images.dog.ceo/breeds/puggle/IMG_074532.jpg', 'https://images.dog.ceo/breeds/retriever-golden/n02099601_5893.jpg', "https://images.dog.ceo/breeds/dhole/n02115913_520.jpg"],
-    descripcionDetallada: 'Esta es una descripción mucho más larga y detallada sobre el Proyecto 1. Aquí se explica el propósito, los desafíos y las soluciones implementadas. El objetivo principal era crear un dashboard personalizable para el análisis de datos de mercado en tiempo real.',
-    tecnologias: ['React', 'TypeScript', 'GSAP']
+    titulo: 'CLINICA ONLINE', 
+    descripcion: 'Es una pagina que simula ser una clinica online, en esta podes logiarte como paciente, doctor o administrador. Segun el rol podes sacar turnos, establecer dias y horario de trabajo, eliminar o rechazar usuarios, descargar historial clinico, etc.', 
+    imagen: clinicaFoto,
+    pagina: "https://hospitalonline-54e32.web.app/home",
+    codigo: "https://github.com/Maurocrip/Hospital-Virtual",
+    height: 600
   },
   { 
-    titulo: 'Proyecto 2', 
-    descripcion: 'Un robusto sistema de backend para una aplicación de comercio electrónico, manejando miles de transacciones por minuto. La arquitectura se basó en microservicios para garantizar escalabilidad y mantenibilidad.', 
-    imagen: 'https://images.dog.ceo/breeds/terrier-bedlington/n02093647_2756.jpg',
-    imagenes: ['https://images.dog.ceo/breeds/terrier-bedlington/n02093647_2756.jpg','https://images.dog.ceo/breeds/affenpinscher/n02110627_13060.jpg', "https://images.dog.ceo/breeds/elkhound-norwegian/n02091467_481.jpg"],
-    descripcionDetallada: 'Detalles extensos sobre el Proyecto 2. Fue un proyecto enfocado en el backend con Node.js y Express, utilizando una base de datos NoSQL para una alta disponibilidad y flexibilidad en el esquema de datos.',
-    tecnologias: ['Node.js', 'Express', 'MongoDB']
+    titulo: 'SALA DE JUEGOS', 
+    descripcion: 'Una pagina web que simula una sala de juegos, en la cual te tendras que loguear y al ingresar podras accerder a 4 tipos de juegos: ahorcado, una trivia de preguntas, mayor o menos y el blackjact', 
+    imagen: salaJuegosFoto,
+    pagina: "https://sala-de-juegos-2a66d.web.app/home",
+    codigo: "https://github.com/Maurocrip/Sala-de-Juegos",
+    height: 800
   },
   { 
-    titulo: 'Proyecto 3', 
-    descripcion: 'Aplicación móvil multiplataforma para la gestión de tareas en equipo. Permite la colaboración en tiempo real, asignación de responsabilidades y seguimiento del progreso de los proyectos.', 
-    imagen: 'https://images.dog.ceo/breeds/tervuren/shadow_and_frisbee.jpg',
-    imagenes: ['https://images.dog.ceo/breeds/tervuren/shadow_and_frisbee.jpg', 'https://images.dog.ceo/breeds/groenendael/n02105056_5100.jpg', "https://images.dog.ceo/breeds/entlebucher/n02108000_1172.jpg"],
-    descripcionDetallada: 'El proyecto 3 fue una aplicación móvil desarrollada con React Native, conectada a una API de Firebase para autenticación y base de datos en tiempo real. La interfaz fue diseñada para ser intuitiva y fácil de usar.',
-    tecnologias: ['React Native', 'Firebase']
+    titulo: 'CARRITO ONLINE', 
+    descripcion: 'Simula la compra de productos de alguna tienda, donde puedes agregar productos a un carrito, eliminarlos del carrito, aumentar o disminuir su cantidad y filtrar los productos.', 
+    imagen: carritoOnlineFoto,
+    pagina: "https://carritodelacompra.vercel.app/",
+    codigo: "https://github.com/Maurocrip/Carrito-de-compra",
+    height: 700
   },
   { 
-    titulo: 'Proyecto 4', 
-    descripcion: 'Dashboard interactivo para la visualización de datos geoespaciales. Los usuarios pueden explorar mapas, aplicar filtros y ver estadísticas dinámicas sobre diferentes regiones.', 
-    imagen: 'https://images.dog.ceo/breeds/leonberg/n02111129_4533.jpg',
-    imagenes: ['https://images.dog.ceo/breeds/leonberg/n02111129_4533.jpg', 'https://images.dog.ceo/breeds/terrier-sealyham/n02095889_673.jpg', "https://images.dog.ceo/breeds/kombai/Kombai-indian-Dog.jpg"],
-    descripcionDetallada: 'Este proyecto es una visualización de datos creada con D3.js y React, mostrando estadísticas en tiempo real a través de una conexión WebSocket. El reto fue optimizar el rendimiento para manejar grandes volúmenes de datos.',
-    tecnologias: ['React', 'D3.js', 'WebSocket']
-  },
-  { 
-    titulo: 'Proyecto 5', 
-    descripcion: 'Plataforma de e-commerce completa con carrito de compras, sistema de pago integrado y panel de administración para gestionar productos, pedidos y clientes.', 
-    imagen: 'https://images.dog.ceo/breeds/spaniel-irish/n02102973_377.jpg',
-    imagenes: ['https://images.dog.ceo/breeds/spaniel-irish/n02102973_377.jpg'],
-    descripcionDetallada: 'Un e-commerce completo construido con el stack MERN, incluyendo pasarelas de pago seguras con Stripe y un sistema de autenticación de usuarios basado en JWT para proteger las rutas y los datos sensibles.',
-    tecnologias: ['MongoDB', 'Express', 'React', 'Node.js']
+    titulo: 'LISTA DE HACERES', 
+    descripcion: 'Una pagina que sirve como una lista de cosas para hacer, es simple pero practica. Anotas algo que tengas que hacer y una vez que lo has hecho la tachas o la eliminas, tambien puedes filtrar las diferentes tareas.', 
+    imagen: todoListFoto,
+    pagina: "https://to-do-list-sigma-lime.vercel.app/",
+    codigo: "https://github.com/Maurocrip/To-do-list",
+    height: 550
   },
 ];
 
-interface TransitionData {
-  proyecto: ProyectoCompleto;
-  fromRect: DOMRect;
-}
-
 const Proyectos = () => {
-  const [transitionData, setTransitionData] = useState<TransitionData | null>(null);
-  const [hidingIndex, setHidingIndex] = useState<number | null>(null);
-  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const handleCardClick = (proyecto: ProyectoCompleto, index: number) => {
-    const cardEl = projectRefs.current[index];
-    if (cardEl) {
-      const fromRect = cardEl.getBoundingClientRect();
-      setHidingIndex(index);
-      setTransitionData({ proyecto, fromRect });
-    }
-  };
-
-  const handleCloseDetalle = () => {
-    setTransitionData(null);
-    setHidingIndex(null);
-  };
+  const cal1 : Array<ProyectoCompleto> = proyectos.filter((_, i) => i % 2 === 0);
+  const cal2 : Array<ProyectoCompleto> = proyectos.filter((_, i) => i % 2 === 1);
 
   return (
-    <section className="proyectos-section">
-      <h2>Mis Proyectos</h2>
-      <div className="proyectos-mosaico">
-        {proyectos.map((proyecto, id) => {
-          let className = '';
-          if (id === 0) className = 'card-grande'; // Primera tarjeta grande
-          if (id === 3) className = 'card-ancha'; // Cuarta tarjeta ancha
-          if (id === hidingIndex) className += ' is-hiding';
-
+    <section className="proyectos-section" id='proyectos'>
+      <h1>Mis Proyectos</h1>
+      <div className='grid-proyecto'>
+        <div className='col'>{cal1.map((proyecto, id) => {
           return (
             <ProyectoCard
               key={id}
-              ref={(el) => (projectRefs.current[id] = el)}
-              {...proyecto}
-              className={className}
-              onClick={() => handleCardClick(proyecto, id)}
+              proyecto={proyecto}
             />
           );
-        })}
+        })}</div>
+        <div className='col'>{cal2.map((proyecto, id) => {
+          return (
+            <ProyectoCard
+              key={id}
+              proyecto={proyecto}
+            />
+          );
+        })}</div>
       </div>
-      {transitionData && (
-        <ProyectoDetalle
-          proyecto={transitionData.proyecto}
-          fromRect={transitionData.fromRect}
-          onClose={handleCloseDetalle}
-        />
-      )}
     </section>
   );
 };

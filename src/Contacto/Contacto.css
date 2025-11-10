@@ -1,0 +1,106 @@
+.contacto {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100%;
+    width: 78%;
+}
+
+.contacto .contacto-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/*CONTACTO PART*/
+.contacto .contacto-main  .contacto-titulo {
+    font-size: 28px; /* Aumentar el tamaño del título */
+    color: #ffde00; /* Aplicar el color amarillo */
+    margin-bottom: 10px;
+    text-align: center;
+}
+.contacto .contacto-main .contacto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+}
+
+.contacto .contacto-main .contacto-info .contacto-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contacto .contacto-main .contacto-info .contacto-item p {
+    margin: 0;
+    font-size: 18px; /* Aumentar el tamaño de las letras */
+}
+
+.contacto .contacto-main .contacto-info .contacto-item p.email {
+    cursor: pointer;
+    color: #00c2ff;
+    transition: color 0.3s ease;
+    font-size: 18px; /* Aumentar el tamaño de las letras */
+}
+
+.contacto .contacto-main .contacto-info .contacto-item p.email:hover {
+    color: #ff00f2;
+}
+
+/*SOCIAL PART*/
+.contacto .contacto-main .contacto-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre botones */
+}
+
+.contacto .contacto-main .contacto-social .social-btn {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #ffffff;
+    border: solid 3px #f600ff;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    width: auto;
+    height: 50px;
+    display: flex
+;
+align-items: center;
+justify-content: center;
+transition: background-color 0.3s 
+ease-in-out;
+}
+
+.contacto .contacto-main .contacto-social .social-btn:hover {
+    box-shadow: 0px 0px 20px 7px #f600ff;
+}
+.contacto .contacto-main .contacto-social .social-btn svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* Separar el ícono del texto */
+    transition: fill 0.3s ease;
+}
+
+/*EXTRA PART*/
+.contacto .contacto-extra {
+    padding: 10px;
+    text-align: center;
+}
+
+.contacto .contacto-extra h2 {
+    margin-bottom: 10px;
+    font-size: 28px; /* Aumentar el tamaño del título */
+    color: #ffde00; /* Aplicar el color amarillo */
+}
+
+.contacto .contacto-extra p {
+    font-size: 18px; /* Aumentar el tamaño de las letras */
+    line-height: 1.5;
+}
+

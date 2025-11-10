@@ -1,18 +1,19 @@
+
 .proyectos-section {
   background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-  padding: 0px 20px;
   position: relative;
-  min-height: 750px;
+  height: 1500px;
   display: flex;
-  overflow: hidden;
   flex-direction: column;
-  justify-content: center;
+  overflow: hidden;
+  align-items: center;
 }
 
-.proyectos-section h2 {
+.proyectos-section h1 {
   text-align: center;
-  margin-bottom: 32px;
-  color: #e6f1ff;
+  margin-bottom: 20px;
+  color: #ffde00;
+  font-size: xx-large;
 }
 
 .proyectos-mosaico {
@@ -81,11 +82,11 @@
 
 .proyecto-card h3 {
   margin: 12px 0 8px;
-  color: #61dafb;
+  color: #794da9;
 }
 
 .proyecto-card p {
-  color: #a8b2d1;
+  color: #c1a8d1;
   font-size: 1rem;
   /* Estilos para truncar el texto */
   display: -webkit-box;
@@ -127,4 +128,79 @@
   .proyecto-card {
     padding: 0; /* Mantenemos el padding en 0 para que la imagen ocupe todo */
   }
+}
+
+/* Estilos del card */
+.proyectos-section .grid-proyecto{
+  display: flex;
+  gap: 10%;
+  width: 75%;
+  height: 100%;
+}
+.proyectos-section .grid-proyecto .col{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.proyectos-section .grid-proyecto .card-proyecto{
+  background: #0063bb4a;
+  display: flex;
+  flex-direction: column;
+  border: solid 4px #f600ff;
+  box-shadow: 0px 0px 20px 0px #f600ff;
+  color: #ffffff;
+  align-items: center;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+.proyectos-section .grid-proyecto .card-proyecto h2{
+  margin: 0px;
+  margin-top: 5px;
+  color: #fedd00;
+}
+.proyectos-section .grid-proyecto .card-proyecto p{
+  padding: 0px 20px;
+  margin: 0;
+}
+.proyectos-section .grid-proyecto .centarInfo{
+  display: flex;
+  padding: 0px 20px;
+  flex-direction: column;
+  align-items: center;
+  height: 50%;
+  justify-content: space-around;
+}
+.proyectos-section .grid-proyecto .CentrarImagen{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+.proyectos-section .grid-proyecto .CentrarImagen img{
+  height: 100%;
+  object-fit: fill;
+  width: 100%;
+  border-radius: 16px 16px 0px 0px;
+}
+.proyectos-section .grid-proyecto .CentrarBotones{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.proyectos-section .grid-proyecto .CentrarBotones a{
+  border-radius: 50px;
+  font-size: large;
+  padding: 10px 20px;
+  border: solid #f600ff 2px;
+  box-shadow: 0px 0px 20px 0px #f600ff;
+  background: #00214a;
+  color: white;
+  text-decoration: none;
+}
+.proyectos-section .grid-proyecto .CentrarBotones a:hover{
+  border-color: #fedd00;
+  box-shadow: 0px 0px 20px 0px #fedd00;
 }

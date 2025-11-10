@@ -1,132 +1,192 @@
-import React, { useRef, useState, useEffect } from 'react';
 import './Perfil.css';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import { gsap } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import { SplitText } from 'gsap/SplitText';
 import { useGSAP } from '@gsap/react';
+import { globalContext } from '../Services/Global';
+import { lenguagueContext } from '../Services/Lenguague';
 import foto from '../assets/yo.jpg';
 import video from '../assets/fondo.mp4';
+import Contacto from '../Contacto/Contacto';
+import { s } from 'framer-motion/client';
 
 const Perfil: React.FC = () => {
-  const [leftWidth, setLeftWidth] = useState<number>(5); // porcentaje inicial
+  const { contacto, setContacto } = useContext(globalContext);
+  const { spanish, information, extrasTitulos } = useContext(lenguagueContext);
+  const [leftWidth, setLeftWidth] = useState(5);
+  const [buttonText, setButtonText] = useState(spanish ? extrasTitulos.contacto : extrasTitulos.contact);
+  const [isMaximized, setIsMaximized] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const dividerRef = useRef<HTMLDivElement>(null);
   const leftPanelRef = useRef<HTMLDivElement>(null);
   const rightPanelRef = useRef<HTMLDivElement>(null);
+  const draggableRef = useRef<Draggable | null>(null);
 
   gsap.registerPlugin(Draggable, SplitText);
 
+  useEffect(()=>{
+    if(contacto && buttonText === (spanish ? extrasTitulos.contacto : extrasTitulos.contact)){
+      handleButtonClick();
+    }
+    if(!contacto && buttonText === (spanish ? extrasTitulos.titulo : extrasTitulos.title)){
+      handleButtonClick();
+    }
+  },[contacto])
+  
+  useEffect(()=>{
+    if(spanish)
+    {
+      setButtonText(contacto ? extrasTitulos.titulo : extrasTitulos.contacto);
+    }
+    else
+    {
+      setButtonText(contacto ? extrasTitulos.title : extrasTitulos.contact);
+    }
+  },[spanish])
+
   useGSAP(() => {
-    // Animación de texto con SplitText
     const split = SplitText.create('#split', { type: 'chars' });
-    const tl = gsap.timeline({ repeat: -1, yoyo: true });
     gsap.set('#split', { opacity: 1 });
-    tl.from(split.chars, {
+    gsap.timeline({ repeat: -1, yoyo: true }).from(split.chars, {
       duration: 0.05,
       opacity: 0,
       ease: 'none',
       stagger: 0.07,
     });
-  });
+  }, [spanish]);
+
+  // Utilidad para calcular opacidades y ancho
+  const updatePanels = (x: number, containerWidth: number, minX: number, maxX: number) => 
+  {
+    const percent = (x / containerWidth) * 100;
+    gsap.set(leftPanelRef.current, { width: `${percent}%` });
+
+    const relativeX = (x - minX) / (maxX - minX);
+    const rightOpacity = relativeX <= 0.6 ? gsap.utils.mapRange(0, 0.6, 1, 0, relativeX) : 0;
+    const leftOpacity = relativeX >= 0.4 ? gsap.utils.mapRange(0.4, 1, 0, 1, relativeX) : 0;
+
+    gsap.set(leftPanelRef.current, { opacity: leftOpacity });
+    gsap.set(rightPanelRef.current, { opacity: rightOpacity });
+
+    if (relativeX > 0.5) 
+    {
+      setButtonText(spanish ? extrasTitulos.titulo : extrasTitulos.title);
+      setIsMaximized(true);
+      setContacto(true);
+    } 
+    else 
+    {
+      setButtonText(spanish ? extrasTitulos.contacto : extrasTitulos.contact);
+      setIsMaximized(false);
+      setContacto(false);
+    }
+  };
 
   useEffect(() => {
     const container = containerRef.current;
     const divider = dividerRef.current;
-    const leftPanel = leftPanelRef.current;
-    const rightPanel = rightPanelRef.current;
-
-    if (!container || !divider || !leftPanel || !rightPanel) return;
+    if (!container || !divider) return;
     const containerWidth = container.getBoundingClientRect().width;
-
     const minX = containerWidth * 0.05;
     const maxX = containerWidth * 0.45;
 
-    const updateDraggable = () => {
-      const containerWidth = container.getBoundingClientRect().width; 
+    const initialX = (leftWidth / 100) * containerWidth;
+    gsap.set(divider, { x: initialX });
+    gsap.set(leftPanelRef.current, { width: `${leftWidth}%` });
 
-      // Posición inicial del divider
-      const initialX = (leftWidth / 100) * containerWidth;
-      gsap.set(divider, { x: initialX });
-      gsap.set(leftPanel, { width: `${leftWidth}%` });
+    const draggable = Draggable.create(divider, {
+      type: 'x',
+      bounds: { minX, maxX },
+      onDrag: function () {
+        updatePanels(this.x, containerWidth, minX, maxX);
+      },
+      onRelease: function () {
+        setLeftWidth((this.x / containerWidth) * 100);
+      },
+    })[0];
+    draggableRef.current = draggable;
 
-      // Crear Draggable
-      Draggable.create(divider, 
-      {
-        type: 'x',
-        bounds: { minX, maxX },
-        onDrag: function () {
-          const x = this.x;
-
-          // Actualizar ancho del panel izquierdo
-          const percent = (x / containerWidth) * 100;
-          gsap.set(leftPanel, { width: `${percent}%` });
-
-          // ---------------------
-          // Mapear opacidades
-          const relativeX = (x - minX) / (maxX - minX); // 0 → 1
-
-          // Right panel opacidad (desvanece de 0 → 50%)
-          let rightOpacity = 1;
-          if (relativeX <= 0.6) {
-            rightOpacity = gsap.utils.mapRange(0, 0.6, 1, 0, relativeX);
-          } else {
-            rightOpacity = 0;
-          }
-
-          // Left panel opacidad (aparece de 50% → 100%)
-          let leftOpacity = 0;
-          if (relativeX >= 0.4) {
-            leftOpacity = gsap.utils.mapRange(0.4, 1, 0, 1, relativeX);
-          } else {
-            leftOpacity = 0;
-          }
-
-          // Aplicar opacidades
-          gsap.set(leftPanel, { opacity: leftOpacity });
-          gsap.set(rightPanel, { opacity: rightOpacity });
-        },
-        onRelease: function () {
-          const finalPercent = (this.x / containerWidth) * 100;
-          setLeftWidth(finalPercent);
-        },
-      });
+    const handleResize = () => {
+      const container = containerRef.current;
+      const divider = dividerRef.current;
+      if (!container || !divider || !draggableRef.current) return;
+      const containerWidth = container.getBoundingClientRect().width;
+      const minX = containerWidth * 0.05;
+      const maxX = containerWidth * 0.45;
+      draggableRef.current.applyBounds({ minX, maxX });
+      // Recalculate divider position based on current leftWidth
+      const newX = (leftWidth / 100) * containerWidth;
+      gsap.set(divider, { x: newX });
+      gsap.set(leftPanelRef.current, { width: `${leftWidth}%` });
+      updatePanels(newX, containerWidth, minX, maxX);
+      draggableRef.current.update();
     };
-
-    updateDraggable();
-
-    // Recalcular si la ventana cambia de tamaño
-    window.addEventListener('resize', updateDraggable);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('resize', updateDraggable);
+      window.removeEventListener('resize', handleResize);
       Draggable.get(divider)?.kill();
+      draggableRef.current = null;
     };
   }, [leftWidth]);
 
+  const animateDragTo = (xTarget: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+    const containerWidth = container.getBoundingClientRect().width;
+    const minX = containerWidth * 0.05;
+    const maxX = containerWidth * 0.45;
+
+    gsap.to(dividerRef.current, {
+      x: xTarget,
+      duration: 1,
+      ease: "power2.inOut",
+      onUpdate: () => {
+        const x = gsap.getProperty(dividerRef.current!, "x") as number;
+        updatePanels(x, containerWidth, minX, maxX);
+      },
+      onComplete: () => {
+        setLeftWidth((xTarget / containerWidth) * 100);
+        draggableRef.current?.update();
+      }
+    });
+  };
+
+  const handleButtonClick = () => {
+    const container = containerRef.current;
+    if (!container) return;
+    const containerWidth = container.getBoundingClientRect().width;
+    const minX = containerWidth * 0.05;
+    const maxX = containerWidth * 0.45;
+    animateDragTo(isMaximized ? minX : maxX);
+    setIsMaximized(!isMaximized);
+  };
+
   return (
-    <section className="perfil-section">
+    <section className="perfil-section" id="perfil">
       <div className="container" ref={containerRef}>
         <div className="lado-izquierdo" ref={leftPanelRef} style={{ width: `${leftWidth}%` }} >
           <div className="perfil-sobreMi">
-            <h1>Sobre Mi</h1>
-            <label >Soy Mauro Hernán Racioppi, técnico en programación con un profundo interés por el desarrollo y la tecnología. Mi paso por la Universidad Tecnológica Nacional me brindó una sólida formación en software, despertando mi curiosidad 
-              por explorar distintas áreas del desarrollo. Aunque no tengo experiencia laboral formal, he trabajado en proyectos académicos y personales que me han permitido fortalecer tanto mis habilidades técnicas como mi capacidad para trabajar en equipo. 
-              Actualmente, mi objetivo es avanzar hacia el desarrollo full-stack y seguir creciendo profesionalmente en el sector tecnológico, siempre comprometido con el aprendizaje continuo.</label>
+            <Contacto />
           </div>
         </div>
 
         <div className="divider" id="divider" ref={dividerRef}>
           <img className='perfil-foto' src={foto} alt="Foto de perfil" />
+          <div className='button-content'>
+            <button onClick={handleButtonClick}>{buttonText}</button>
+          </div>
         </div>
 
-        <div className="perfil-info" ref={rightPanelRef} style={{backgroundClip: `url(${video})`}}>
+        <div className="perfil-info">
           <video src={video} autoPlay loop muted className="video-background">
             <source src={video} type="video/mp4" />
           </video>
-          <div className='mask'>
+          <div className='mask' ref={rightPanelRef}>
             <div className="split" id='split'>
-              <h1 className="perfil-nombre">Mauro <br></br> Hernan Racioppi</h1>
-              <h3 className="perfil-titulo">Desarrollador Full-Stack</h3>
-              <label className="perfil-descripcion">Joven desarrollador, apasionado por la tecnología.</label>
+              <h1 className="perfil-nombre">{spanish ? information.nombre : information.name} </h1>
+              <h3 className="perfil-titulo">{spanish ? information.subTitulo : information.subTitle}</h3>
+              <label className="perfil-descripcion">{spanish ? information.descripción : information.description}</label>
             </div>
           </div>
         </div>

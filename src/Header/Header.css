@@ -1,0 +1,135 @@
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.header
+{
+    display: flex;
+    border: solid 3px black;
+    background-color: rgb(6 0 0);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header li{
+    list-style: none;
+    padding: 0px 40px;
+}
+
+.header ul{
+    list-style: none;
+    display: flex;
+    padding: 0px;
+}
+
+.header a{
+    list-style: none;
+    font-size: larger;
+    color: white;
+    position: relative;
+    padding-bottom: 8px;
+    text-decoration: none;
+}
+
+.header ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.header ul li a:hover::after {
+    width: 100%;
+    background-color: #f600ff;
+}
+
+.header ul li a:hover {
+    color: #ffd500;
+}
+
+.Div-lenguagues
+{
+    position: absolute;
+    right: 2%;
+}
+
+.Button-lenguagues{
+    width: 50px;
+    height: 33px;
+    padding: 0;
+    background: none;
+}
+
+.Button-lenguagues:hover{
+    cursor: pointer;
+    border: solid 2px #ffd500;
+}
+
+.Button-lenguagues:focus{
+    outline: none;
+}
+
+@media (max-width: 950px) {
+    .header li{
+        padding: 0px 20px;
+    }
+
+    .header
+    {
+        justify-content: flex-start;
+    }
+
+    .header ul {
+        width: 90%;
+        justify-content: space-around;
+    }
+}
+@media (max-width: 770px) {
+    .header a{
+        font-size: medium;
+    }
+}
+
+@media (max-width: 600px) {
+    .header li{
+        padding: 0px 10px;
+    }
+    .header a{
+        font-size: small;
+    }
+}
+
+@media (max-width: 500px) {
+    .Div-lenguagues {
+        position: inherit;
+    }
+
+    .header a {
+        font-size: x-small;
+    }
+
+    .Button-lenguagues {
+        width: 30px;
+        display: flex;
+    }
+
+    .header li{
+        display: flex;
+        padding: 0px 10px;
+        align-items: center;
+    }
+    .header {
+        width: 98%;
+    }
+}

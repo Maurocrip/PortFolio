@@ -1,7 +1,7 @@
 .lenguajes-section {
   width: 100%;
-  min-height: 500px;
-  padding: 40px 0;
+  min-height: 460px;
+  padding: 1px 0;
   background: #0f2e54;
   box-sizing: border-box;
 }
@@ -9,12 +9,13 @@
 .lenguajes-section h2 {
   text-align: center;
   margin-bottom: 32px;
-  color: #e6f1ff;
+  color: #ffde00;
+  font-size: xx-large;
 }
 
 .lenguajes-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 32px;
   padding: 0 24px;
@@ -35,7 +36,7 @@
 .lenguajes-grupo h3 {
   margin-top: 0;
   margin-bottom: 24px;
-  color: #61dafb;
+  color: #ffde00;
 }
 
 .lenguajes-iconos {
@@ -44,19 +45,22 @@
   height: 200px; /* Altura para el lienzo de posicionamiento */
 }
 
+
 .lenguaje-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 3px;
   position: absolute;
+  padding: 10px 0px;
   width: 80px; /* Ancho fijo para el item */
-  cursor: pointer;
 }
+
 
 .lenguaje-item:hover {
   transform: scale(1.1);
   z-index: 10;
+  background: rgb(232 0 255 / 5%);
   /* La animación ahora es continua */
 }
 

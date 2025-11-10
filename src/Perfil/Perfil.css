@@ -1,6 +1,6 @@
 .perfil-section {
     height: 700px;
-    background: #001d30;
+    background: #002a46;
 }
 
 .perfil-section .container {
@@ -12,7 +12,6 @@
 
 /* ----------------SOBREMI----------------------------*/
 .perfil-section .container .lado-izquierdo {
-  background-color: #1e0644;
   opacity: 0;
 }
 
@@ -43,8 +42,31 @@
   top: 0;
   bottom: 0;
   width: 8px;
-  background-color: #249cbf;
-  z-index: 10;
+  flex-direction: column;
+  display: flex;
+    background-color: #f600ff;
+    box-shadow: 0px 0px 20px 0px #f600ff;
+  z-index: 9!important;
+  align-items: center;
+}
+.perfil-section .container .divider .button-content
+{
+    position: absolute;
+    top: 80%;
+}
+.perfil-section .container .divider .button-content button
+{
+    width: 200px;
+    background: #ffffff;
+    display: flex;
+    height: 40px;
+    color: black;
+    border: solid 5px #f600ff;
+    box-shadow: 0px 0px 20px 0px #f600ff;
+    font-size: x-large;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .perfil-section .container .divider .perfil-foto{
@@ -54,7 +76,8 @@
     position: absolute;
     height: auto;
     object-fit: cover;
-    border: solid 5px #249cbf;
+    border: solid 5px #f600ff;
+    box-shadow: 0px 0px 20px 0px #f600ff;
 }
 
 .perfil-section .container .divider .desplazado

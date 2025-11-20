@@ -1,15 +1,23 @@
 import { createContext, useState } from "react";
-import { titulos } from "../Lenguagues/Titulos";
-import information from "../Lenguagues/Personal";
-import { extrasTitulos } from "../Lenguagues/Extras";
+import { titulos } from "../Const/Titulos";
+import information from "../Const/Personal";
+import { extrasTitulos } from "../Const/Extras";
+import { ProyectosTitulos } from "../Const/ProyectoTitulos";
 
-export const lenguagueContext = createContext<{spanish: boolean, setSpanish: React.Dispatch<React.SetStateAction<boolean>>, information: typeof information, titulos: typeof titulos, extrasTitulos: typeof extrasTitulos}>({spanish: true, setSpanish: () => {}, information, titulos, extrasTitulos});
+export const lenguagueContext = createContext<
+{
+  spanish: boolean, 
+  setSpanish: React.Dispatch<React.SetStateAction<boolean>>, 
+  information: typeof information, 
+  titulos: typeof titulos, 
+  extrasTitulos: typeof extrasTitulos, 
+  ProyectosTitulos: typeof ProyectosTitulos}>({spanish: true, setSpanish: () => {}, information, titulos, extrasTitulos, ProyectosTitulos});
 
 export default function LenguagueProvider({ children }: any) {
   const [spanish, setSpanish] = useState<boolean>(true);
 
   return (
-    <lenguagueContext.Provider value={{ spanish, setSpanish, information, titulos, extrasTitulos }}>
+    <lenguagueContext.Provider value={{ spanish, setSpanish, information, titulos, extrasTitulos, ProyectosTitulos }}>
       {children}
     </lenguagueContext.Provider>
   );

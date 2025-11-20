@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './Contacto.css';
 import Swal from 'sweetalert2';
-import { lenguagueContext } from '../Services/Lenguague';
+import { lenguagueContext } from '../../Services/Lenguague';
 
 const Contacto: React.FC = () => {
 

@@ -1,8 +1,8 @@
-import Perfil from "./Perfil/Perfil";
-import Proyectos from "./Proyectos/Proyectos";
-import Lenguajes from "./Lenguajes/Lenguajes";
-import Footer from "./Footer/Footer";
-import Header from "./Header/Header";
+import Perfil from "./Components/Perfil/Perfil";
+import Proyectos from "./Components/Proyectos/Proyectos";
+import Lenguajes from "./Components/Lenguajes/Lenguajes";
+import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/Header";
 import LenguagueProvider from "./Services/Lenguague";
 import GlobalProvider from "./Services/Global";
 

@@ -10,7 +10,6 @@ import { lenguagueContext } from '../../Services/Lenguague';
 import foto from '../../assets/yo.jpg';
 import video from '../../assets/fondo.mp4';
 import Contacto from '../Contacto/Contacto';
-import { s } from 'framer-motion/client';
 
 const Perfil: React.FC = () => {
   const { contacto, setContacto } = useContext(globalContext);

@@ -3,12 +3,14 @@ import React, { useRef, useState, useEffect, useContext } from 'react';
 import { gsap } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import { SplitText } from 'gsap/SplitText';
-import { useGSAP } from '@gsap/react';
-import { globalContext } from '../Services/Global';
-import { lenguagueContext } from '../Services/Lenguague';
-import foto from '../assets/yo.jpg';
-import video from '../assets/fondo.mp4';
+import SplitType from "split-type";
+//import { useGSAP } from '@gsap/react';
+import { globalContext } from '../../Services/Global';
+import { lenguagueContext } from '../../Services/Lenguague';
+import foto from '../../assets/yo.jpg';
+import video from '../../assets/fondo.mp4';
 import Contacto from '../Contacto/Contacto';
+import { s } from 'framer-motion/client';
 
 const Perfil: React.FC = () => {
   const { contacto, setContacto } = useContext(globalContext);
@@ -21,6 +23,10 @@ const Perfil: React.FC = () => {
   const leftPanelRef = useRef<HTMLDivElement>(null);
   const rightPanelRef = useRef<HTMLDivElement>(null);
   const draggableRef = useRef<Draggable | null>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLHeadingElement>(null);
+  const descRef = useRef<HTMLLabelElement>(null);
+
 
   gsap.registerPlugin(Draggable, SplitText);
 
@@ -44,7 +50,7 @@ const Perfil: React.FC = () => {
     }
   },[spanish])
 
-  useGSAP(() => {
+  /* useGSAP(() => {
     const split = SplitText.create('#split', { type: 'chars' });
     gsap.set('#split', { opacity: 1 });
     gsap.timeline({ repeat: -1, yoyo: true }).from(split.chars, {
@@ -53,7 +59,47 @@ const Perfil: React.FC = () => {
       ease: 'none',
       stagger: 0.07,
     });
+  }, [spanish]); */
+
+   useEffect(() => {
+
+    if (!titleRef.current || !subtitleRef.current || !descRef.current) return;
+    // Dividir cada bloque en caracteres
+    const splitTitle = new SplitType(titleRef.current, { types: "chars" });
+    const splitSubtitle = new SplitType(subtitleRef.current, { types: "chars" });
+    const splitDesc = new SplitType(descRef.current, { types: "chars" });
+
+    // Timeline GSAP
+    const tl = gsap.timeline({ repeat: -1, yoyo: true });
+
+    tl.from(splitTitle.chars, {
+      opacity: 0,
+        stagger: 0.07,
+        duration: 0.05,
+        ease: "none",
+    })
+      .from(splitSubtitle.chars, {
+      opacity: 0,
+        stagger: 0.07,
+        duration: 0.05,
+        ease: "none",
+      }, "+=0.05")
+      .from(splitDesc.chars, {
+      opacity: 0,
+        stagger: 0.07,
+        duration: 0.05,
+        ease: "none",
+      }, "+=0.05");
+
+    // Cleanup: revertir splits y matar timeline
+    return () => {
+      splitTitle.revert();
+      splitSubtitle.revert();
+      splitDesc.revert();
+      tl.kill();
+    };
   }, [spanish]);
+
 
   // Utilidad para calcular opacidades y ancho
   const updatePanels = (x: number, containerWidth: number, minX: number, maxX: number) => 
@@ -182,10 +228,10 @@ const Perfil: React.FC = () => {
             <source src={video} type="video/mp4" />
           </video>
           <div className='mask' ref={rightPanelRef}>
-            <div className="split" id='split'>
-              <h1 className="perfil-nombre">{spanish ? information.nombre : information.name} </h1>
-              <h3 className="perfil-titulo">{spanish ? information.subTitulo : information.subTitle}</h3>
-              <label className="perfil-descripcion">{spanish ? information.descripción : information.description}</label>
+            <div className="split">
+              <h1 ref={titleRef} key={spanish ? information.nombre : information.name} className="perfil-nombre">{spanish ? information.nombre : information.name} </h1>
+              <h3 ref={subtitleRef} key={spanish ? information.subTitulo : information.subTitle} className="perfil-titulo">{spanish ? information.subTitulo : information.subTitle}</h3>
+              <label ref={descRef} key={spanish ? information.descripción : information.description} className="perfil-descripcion">{spanish ? information.descripción : information.description}</label>
             </div>
           </div>
         </div>

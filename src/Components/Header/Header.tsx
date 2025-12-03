@@ -1,7 +1,7 @@
 import "./Header.css";
 import { useContext } from "react";
-import { lenguagueContext } from "../Services/Lenguague";
-import { globalContext } from "../Services/Global";
+import { lenguagueContext } from "../../Services/Lenguague";
+import { globalContext } from "../../Services/Global";
 
 export default function Header() {
   const { spanish, setSpanish, titulos } = useContext(lenguagueContext);

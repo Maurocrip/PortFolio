@@ -1,5 +1,7 @@
 import "./Lenguajes.css";
 import FloatingIcon from './FloatingIcon';
+import { lenguagueContext } from '../../Services/Lenguague';
+import { useContext } from 'react';
 
 const lenguajesFront = [
   { nombre: "React", icono: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
@@ -28,9 +30,10 @@ const utilidades = [
 ];
 
 function Lenguajes() {
+      const { spanish, titulos} = useContext(lenguagueContext);
   return (
     <section className="lenguajes-section" id='habilidades'>
-      <h2>Lenguajes y Herramientas</h2>
+      <h2>{spanish ? titulos.tecnologías : titulos.technologies}</h2>
       <div className="lenguajes-container">
         <div className="lenguajes-grupo">
           <h3>Frontend</h3>
@@ -49,7 +52,7 @@ function Lenguajes() {
           </div>
         </div>
         <div className="lenguajes-grupo">
-          <h3>Utilidades</h3>
+          <h3>{spanish ? 'Utilidades' : 'Utilities'}</h3>
           <div className="lenguajes-iconos">
             {utilidades.map((l) => (
               <FloatingIcon key={l.nombre} icono={l.icono} nombre={l.nombre} />

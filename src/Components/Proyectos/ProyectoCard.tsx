@@ -17,8 +17,8 @@ const ProyectoCard : React.FC<ProyectoCardProps> = ({ proyecto }) => {
       <h2>{spanish ? proyecto.Español.titulo : proyecto.Ingles.titulo}</h2>
       <p style={{fontSize: Math.max(12, proyecto.height * 0.03)}}>{spanish ? proyecto.Español.descripcion : proyecto.Ingles.descripcion}</p>
       <div className='CentrarBotones'>
-        <a className='Codigo' href={proyecto.codigo} target="_blank" rel="noopener noreferrer">Código</a>
-        <a className='Pagina' href={proyecto.pagina} target="_blank" rel="noopener noreferrer">Página</a>
+        <a className='Codigo' href={proyecto.codigo} target="_blank" rel="noopener noreferrer">{spanish ? "Código" : "Code"}</a>
+        <a className='Pagina' href={proyecto.pagina} target="_blank" rel="noopener noreferrer">{spanish ? "Página" : "Page"}</a>
       </div>
     </div>
   </div>

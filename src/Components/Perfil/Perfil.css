@@ -198,3 +198,17 @@
         padding-left: 150px;
     }
 }
+@media(max-width: 1000px){
+    .perfil-section .container .perfil-info .mask .split .perfil-nombre {
+        font-size: 28px;
+    }
+    .perfil-section .container .perfil-info .mask .split .perfil-titulo {
+        font-size: 20px;
+    }
+    .perfil-section .container .perfil-info .mask .split .perfil-descripcion {
+        font-size: 16px;
+    }
+    .perfil-section .container .perfil-info .mask .split {
+        height: 58%;
+    }
+}

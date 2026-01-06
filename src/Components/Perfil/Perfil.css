@@ -1,6 +1,7 @@
 .perfil-section {
     height: 700px;
     background: #002a46;
+    overflow: hidden;
 }
 
 .perfil-section .container {
@@ -191,5 +192,9 @@
 
     .perfil-section{
         height: 540px;
+    }
+
+    .perfil-section .container .perfil-info .mask {
+        padding-left: 150px;
     }
 }

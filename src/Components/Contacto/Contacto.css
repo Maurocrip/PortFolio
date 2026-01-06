@@ -127,4 +127,29 @@ ease-in-out;
     }  
 }
 
+@media(max-width: 500px){
+     .contacto .contacto-main .contacto-info .contacto-item {
+        height: 50px;
+    }
+     .contacto .contacto-main .contacto-social {
+        gap: 10px;
+    }
+    .contacto .contacto-main .contacto-social .social-btn {
+        font-size: 14px;
+        height: 30px;
+    }
+    .contacto .contacto-main .contacto-social .social-btn svg {
+        width: 15px;
+        height: 15px;
+    }
+    .contacto .contacto-main .contacto-titulo, .contacto .contacto-extra h2 {
+        height: 30px;
+    }
+    .contacto .contacto-extra {
+        padding: 0px;
+        text-align: start;
+        width: 94%;
+    }
+}
+
 

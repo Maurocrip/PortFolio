@@ -116,7 +116,7 @@ header{
     }
 
     .header a {
-        font-size: x-small;
+        font-size: small;
     }
 
     .Button-lenguagues {
@@ -130,6 +130,6 @@ header{
         align-items: center;
     }
     .header {
-        width: 98%;
+        width: 99%;
     }
 }

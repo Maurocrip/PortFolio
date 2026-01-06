@@ -53,6 +53,7 @@
 {
     position: absolute;
     top: 80%;
+    transition: top 0.5s ease, height 0.5s ease;
 }
 .perfil-section .container .divider .button-content button
 {
@@ -73,6 +74,7 @@
     width: 250px;
     left: -123px;
     top: 31%;
+    transition: top 0.5s ease, height 0.5s ease;
     position: absolute;
     height: auto;
     object-fit: cover;
@@ -131,6 +133,7 @@
     flex-direction: column;
     justify-content: space-around;
     font-family: Consolas;
+    max-width: 37%;
 }
 
 .perfil-section .container .perfil-info .mask .split .perfil-nombre{
@@ -141,15 +144,52 @@
 }
 
 .perfil-section .container .perfil-info .mask .split .perfil-titulo {
-    font-size: 2.3rem;
+    font-size: 3dvw;
     color: #61dafb;
     margin: 10px 0px;
     line-height: 1.5;
 }
 
 .perfil-section .container .perfil-info .mask .split .perfil-descripcion {
-    font-size: 1.9rem;
+    font-size: 2dvw;
     color: #ffd500;
     line-height: 2;
 }
 /*----------------------------------------------------------------------------*/
+
+/* *******SCREEEEN*********** */
+
+@media(max-width: 1200px){
+    .perfil-section .container .divider .perfil-foto{
+        width: 200px;
+        left: -96px;
+        top: 34%;
+    }
+
+    .perfil-section .container .divider .button-content button {
+        width: 190px;
+    }
+    .perfil-section .container .divider .button-content {
+        top: 75%;
+    }
+}
+
+@media(max-width: 1000px){
+    .perfil-section .container .divider .perfil-foto{
+        width: 130px;
+        left: -65px;
+        top: 35%;
+    }
+
+    .perfil-section .container .divider .button-content button {
+        width: 160px;
+        font-size: large;
+    }
+    .perfil-section .container .divider .button-content {
+        top: 69%;
+    }
+
+    .perfil-section{
+        height: 540px;
+    }
+}

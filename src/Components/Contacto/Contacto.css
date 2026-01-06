@@ -104,3 +104,27 @@ ease-in-out;
     line-height: 1.5;
 }
 
+/* *******SCREEEEN*********** */
+@media(max-width: 1300px){
+    .contacto .contacto-extra p {
+        font-size: 1rem;
+    }  
+}
+@media(max-width: 1000px){
+    .contacto .contacto-extra p {
+        font-size: 14px;
+    }  
+    .contacto , .contacto .contacto-main , .contacto .contacto-main .contacto-info{
+        gap: 0px;
+    }
+    .contacto .contacto-main .contacto-titulo , .contacto .contacto-extra h2{
+        margin: 0;
+    }
+}
+@media(max-width: 800px){
+    .contacto .contacto-extra p {
+        font-size: 13px;
+    }  
+}
+
+

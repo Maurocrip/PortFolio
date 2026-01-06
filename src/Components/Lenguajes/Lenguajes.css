@@ -99,3 +99,19 @@
     height: 48px;
   }
 }
+
+@media (max-width: 1000px) {
+ .lenguajes-section {
+
+  min-height: 760px;
+  }
+}
+
+@media (max-width: 700px) {
+ .lenguajes-section {
+
+    height: auto;
+    min-height: unset;
+    padding-bottom: 20px;
+  }
+}

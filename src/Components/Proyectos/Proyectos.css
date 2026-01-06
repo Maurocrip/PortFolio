@@ -204,3 +204,26 @@
   border-color: #fedd00;
   box-shadow: 0px 0px 20px 0px #fedd00;
 }
+
+@media (max-width: 1300px) {
+  .proyectos-section .grid-proyecto .card-proyecto {
+    height: 650px;
+  }
+
+  .proyectos-section .grid-proyecto {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .proyectos-section {
+    height: auto;
+  }
+  .proyectos-section .grid-proyecto {
+    width: 65%;
+    flex-direction: column;
+  }
+  .proyectos-section .grid-proyecto .col {
+    margin-bottom: 10px;
+  }
+}

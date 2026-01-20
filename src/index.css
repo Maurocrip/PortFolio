@@ -13,6 +13,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  --color-primary: #ff00f2;
+  --color-secondary: #ff00f2;
+  --color-terceary: #ff00f2;
 }
 
 body {

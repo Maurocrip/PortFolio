@@ -49,7 +49,7 @@
 }
 
 .contacto .contacto-main .contacto-info .contacto-item p.email:hover {
-    color: #ff00f2;
+    color: var(--color-primary);
 }
 
 /*SOCIAL PART*/
@@ -63,7 +63,7 @@
     padding: 10px 20px;
     background-color: #000000;
     color: #ffffff;
-    border: solid 3px #f600ff;
+    border: solid 3px var(--color-primary);
     border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
@@ -78,7 +78,7 @@ ease-in-out;
 }
 
 .contacto .contacto-main .contacto-social .social-btn:hover {
-    box-shadow: 0px 0px 20px 7px #f600ff;
+    box-shadow: 0px 0px 20px 7px var(--color-primary);
 }
 .contacto .contacto-main .contacto-social .social-btn svg {
     width: 24px;

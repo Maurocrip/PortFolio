@@ -24,7 +24,7 @@ const Contacto: React.FC = () => {
 
     const handleDownloadCV = () => {
         const link = document.createElement('a');
-        link.href = '/path/to/curriculum.pdf'; // Reemplazar con la ruta real del archivo
+        link.href = '../Public/curriculum.pdf'; // Reemplazar con la ruta real del archivo
         link.download = 'Curriculum_Mauro_Racioppi.pdf';
         link.click();
     };

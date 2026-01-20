@@ -1,7 +1,7 @@
+import './Footer.css';
 import React, { useContext } from 'react';
 import { lenguagueContext } from '../../Services/Lenguague';
 
-import './Footer.css';
 
 const Footer: React.FC = () => {
         const { spanish, extrasTitulos } = useContext(lenguagueContext);

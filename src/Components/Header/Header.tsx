@@ -5,33 +5,24 @@ import { globalContext } from "../../Services/Global";
 
 export default function Header() {
   const { spanish, setSpanish, titulos } = useContext(lenguagueContext);
-  const { contacto, setContacto } = useContext(globalContext);
+  const { setContacto } = useContext(globalContext);
 
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, offset: number) => {
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
 
     const targetId = event.currentTarget.getAttribute("href")?.slice(1);
     const targetElement = targetId && document.getElementById(targetId);
 
     if (targetElement) {
-      const offsetPosition =
-        targetElement.getBoundingClientRect().top + window.pageYOffset + offset;
+      const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset -80;
       window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
-  const handleClickContacto = (event: React.MouseEvent<HTMLAnchorElement>, offset: number) => {
+
+  const handleClickPerfilContact = (event: React.MouseEvent<HTMLAnchorElement>, bool: boolean) => {
     event.preventDefault();
-    if (!contacto) {
-      setContacto(true);
-    }
-    handleClick(event, offset);
-  };
-  const handleClickPerfil = (event: React.MouseEvent<HTMLAnchorElement>, offset: number) => {
-    event.preventDefault();
-    if (contacto) {
-      setContacto(false);
-    }
-    handleClick(event, offset);
+    setContacto(bool);
+    handleClick(event);
   };
 
   const toggleLanguage = () => {
@@ -39,12 +30,8 @@ export default function Header() {
   };
 
   const menuItems = [
-    { href: "#proyectos", label: spanish ? titulos.proyectos : titulos.proyects, offset: -80 },
-    {
-      href: "#habilidades",
-      label: spanish ? titulos.tecnologías : titulos.technologies,
-      offset: -80,
-    },
+    { href: "#proyectos", label: spanish ? titulos.proyectos : titulos.proyects },
+    { href: "#habilidades", label: spanish ? titulos.tecnologías : titulos.technologies},
   ];
 
   return (
@@ -52,18 +39,18 @@ export default function Header() {
       <div className="header">
         <ul>
             <li>
-              <a href='#perfil' onClick={(e) => handleClickPerfil(e, -80)}>
+              <a href='#perfil' onClick={(e) => handleClickPerfilContact(e, false)}>
                 {spanish ? titulos.informacion : titulos.information}
               </a>
             </li>
             <li>
-              <a href='#perfil' onClick={(e) => handleClickContacto(e, -80)}>
+              <a href='#perfil' onClick={(e) => handleClickPerfilContact(e, true)}>
                 {spanish ? titulos.contacto : titulos.contact}
               </a>
             </li>
-          {menuItems.map(({ href, label, offset }) => (
+          {menuItems.map(({ href, label }) => (
             <li key={href}>
-              <a href={href} onClick={(e) => handleClick(e, offset)}>
+              <a href={href} onClick={(e) => handleClick(e)}>
                 {label}
               </a>
             </li>
@@ -80,7 +67,6 @@ export default function Header() {
               alt={spanish ? "Cambiar a inglés" : "Switch to Spanish"}
               width="99%"
               height="99%"
-              onClick={toggleLanguage}
             />
           </button>
         </div>

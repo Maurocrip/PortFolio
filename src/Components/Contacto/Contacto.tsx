@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
 import './Contacto.css';
 import Swal from 'sweetalert2';
+import React, { useContext } from 'react';
 import { lenguagueContext } from '../../Services/Lenguague';
+import pdf from '../../Public/Curriculum_Mauro_Racioppi.pdf';
 
 const Contacto: React.FC = () => {
 
@@ -21,13 +22,10 @@ const Contacto: React.FC = () => {
             color: '#fff',
         });
     };
-
-    const handleDownloadCV = () => {
-        const link = document.createElement('a');
-        link.href = '../Public/curriculum.pdf'; // Reemplazar con la ruta real del archivo
-        link.download = 'Curriculum_Mauro_Racioppi.pdf';
-        link.click();
-    };
+    const HandlePdf = () => 
+    {
+        window.open(pdf, "_blank");
+    }
 
     return (
         <section className="contacto">
@@ -62,7 +60,7 @@ const Contacto: React.FC = () => {
                         </svg>
                         LinkedIn
                     </button>
-                    <button className="social-btn" onClick={handleDownloadCV}>
+                    <button className="social-btn" onClick={HandlePdf}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
                             <g fill="currentColor">
                                 <path d="M7.8 6.35c.56 0 1.01-.45 1.01-1.01S8.36 4.33 7.8 4.33s-1.01.45-1.01 1.01s.45 1.01 1.01 1.01" />
@@ -76,7 +74,7 @@ const Contacto: React.FC = () => {
                 </div>
             </div>
             <div className="contacto-extra">
-                <h2 className="contacto-titulo">{spanish ? extrasTitulos.masInformacion : extrasTitulos.moreInformation}</h2>
+                <h2>{spanish ? extrasTitulos.masInformacion : extrasTitulos.moreInformation}</h2>
                 <p> {spanish ? information.sobreMi : information.aboutMe}</p>
             </div>
         </section>

@@ -1,6 +1,6 @@
-import { useRef } from 'react'; // Importa hooks de React: useMemo para memorizar valores y useRef para crear referencias a elementos del DOM.
-import { gsap } from 'gsap'; // Importa la librería principal de GSAP para animaciones.
-import { useGSAP } from '@gsap/react'; // Importa el hook específico de GSAP para React, que maneja de forma segura las animaciones en el ciclo de vida del componente.
+import { useRef } from 'react'; 
+import { gsap } from 'gsap'; 
+import { useGSAP } from '@gsap/react';
 
 // Genera una posición "aleatoria"
 const getRandomPosition = () => ({
@@ -12,7 +12,6 @@ const FloatingIcon = ({ icono, nombre }: { icono: string; nombre: string }) => {
     // Crea una referencia para el contenedor del ícono. GSAP la usará para apuntar al elemento a animar.
     const container = useRef(null);
     
-    // Hook de GSAP para crear y manejar animaciones.
     useGSAP(() => {
         // Establece la posición inicial del ícono de forma instantánea.
         gsap.set(container.current, getRandomPosition());
@@ -21,8 +20,8 @@ const FloatingIcon = ({ icono, nombre }: { icono: string; nombre: string }) => {
         const moveToRandom = () => {
             gsap.to(container.current, {
                 ...getRandomPosition(), // Genera un nuevo destino aleatorio.
-                duration: 1, // Duración de la animación.
-                ease: 'none', // Movimiento suave.
+                duration: 1, 
+                ease: 'none', 
                 onComplete: moveToRandom, // Cuando la animación termina, se llama a sí misma para empezar el siguiente movimiento.
             });
         };
@@ -34,12 +33,8 @@ const FloatingIcon = ({ icono, nombre }: { icono: string; nombre: string }) => {
 
 
     return (
-        // El div ahora usa la referencia `container` para que GSAP pueda controlarlo.
-        <div
-            ref={container}
-            className="lenguaje-item"
-        >
-            <img src={icono} alt={nombre} className="lenguaje-icono" />
+        <div ref={container} className="lenguaje-item">
+            <img src={icono} alt={nombre} className="lenguaje-icono"/>
             <span className="lenguaje-nombre">{nombre}</span>
         </div>
     );

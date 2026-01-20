@@ -5,15 +5,15 @@
 }
 
 .perfil-section .container {
-  display: flex;
-  width: 200%;
-  height: 100%;
-  position: relative; 
+    display: flex;
+    width: 200%;
+    height: 100%;
+    position: relative; 
 }
 
 /* ----------------SOBREMI----------------------------*/
 .perfil-section .container .lado-izquierdo {
-  opacity: 0;
+    opacity: 0;
 }
 
 .perfil-section .container .lado-izquierdo .perfil-sobreMi {
@@ -39,16 +39,16 @@
 
 /* -------------------------DIVISOR----------------------------*/
 .perfil-section .container .divider {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 8px;
-  flex-direction: column;
-  display: flex;
-    background-color: #f600ff;
-    box-shadow: 0px 0px 20px 0px #f600ff;
-  z-index: 9!important;
-  align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    flex-direction: column;
+    display: flex;
+    background-color: var(--color-primary);
+    box-shadow: 0px 0px 20px 0px var(--color-primary);
+    z-index: 9!important;
+    align-items: center;
 }
 .perfil-section .container .divider .button-content
 {
@@ -63,8 +63,8 @@
     display: flex;
     height: 40px;
     color: black;
-    border: solid 5px #f600ff;
-    box-shadow: 0px 0px 20px 0px #f600ff;
+    border: solid 5px var(--color-primary);
+    box-shadow: 0px 0px 20px 0px var(--color-primary);
     font-size: x-large;
     align-items: center;
     justify-content: center;
@@ -79,8 +79,8 @@
     position: absolute;
     height: auto;
     object-fit: cover;
-    border: solid 5px #f600ff;
-    box-shadow: 0px 0px 20px 0px #f600ff;
+    border: solid 5px var(--color-primary);
+    box-shadow: 0px 0px 20px 0px var(--color-primary);
 }
 
 .perfil-section .container .divider .desplazado
@@ -146,14 +146,14 @@
 
 .perfil-section .container .perfil-info .mask .split .perfil-titulo {
     font-size: 3dvw;
-    color: #61dafb;
+    color: var(--color-secondary);
     margin: 10px 0px;
     line-height: 1.5;
 }
 
 .perfil-section .container .perfil-info .mask .split .perfil-descripcion {
     font-size: 2dvw;
-    color: #ffd500;
+    color: var(--color-terceary);
     line-height: 2;
 }
 /*----------------------------------------------------------------------------*/

@@ -1,3 +1,4 @@
+
 .contacto {
     color: #ffffff;
     display: flex;
@@ -16,10 +17,9 @@
 
 /*CONTACTO PART*/
 .contacto .contacto-main  .contacto-titulo {
-    font-size: 28px; /* Aumentar el tamaño del título */
-    color: #ffde00; /* Aplicar el color amarillo */
+    font-size: 28px; 
+    color: var(--color-terceary);
     margin-bottom: 10px;
-    text-align: center;
 }
 .contacto .contacto-main .contacto-info {
     display: flex;
@@ -38,14 +38,13 @@
 
 .contacto .contacto-main .contacto-info .contacto-item p {
     margin: 0;
-    font-size: 18px; /* Aumentar el tamaño de las letras */
+    font-size: 18px; 
 }
 
 .contacto .contacto-main .contacto-info .contacto-item p.email {
     cursor: pointer;
-    color: #00c2ff;
+    color: var(--color-secondary);
     transition: color 0.3s ease;
-    font-size: 18px; /* Aumentar el tamaño de las letras */
 }
 
 .contacto .contacto-main .contacto-info .contacto-item p.email:hover {
@@ -56,7 +55,7 @@
 .contacto .contacto-main .contacto-social {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espaciado entre botones */
+    gap: 20px; 
 }
 
 .contacto .contacto-main .contacto-social .social-btn {
@@ -67,24 +66,19 @@
     border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
-    width: auto;
-    height: 50px;
-    display: flex
-;
-align-items: center;
-justify-content: center;
-transition: background-color 0.3s 
-ease-in-out;
+    display: flex;
+    align-items: center;
+    transition: box-shadow 0.3s  ease-in-out;
 }
 
 .contacto .contacto-main .contacto-social .social-btn:hover {
     box-shadow: 0px 0px 20px 7px var(--color-primary);
 }
+
 .contacto .contacto-main .contacto-social .social-btn svg {
     width: 24px;
     height: 24px;
-    margin-right: 10px; /* Separar el ícono del texto */
-    transition: fill 0.3s ease;
+    margin-right: 10px; 
 }
 
 /*EXTRA PART*/
@@ -95,32 +89,35 @@ ease-in-out;
 
 .contacto .contacto-extra h2 {
     margin-bottom: 10px;
-    font-size: 28px; /* Aumentar el tamaño del título */
-    color: #ffde00; /* Aplicar el color amarillo */
+    font-size: 28px; 
+    color: var(--color-terceary); 
 }
 
 .contacto .contacto-extra p {
-    font-size: 18px; /* Aumentar el tamaño de las letras */
+    font-size: 18px; 
     line-height: 1.5;
 }
 
-/* *******SCREEEEN*********** */
+/* --------------------------------------------RESPONSIVE-------------------------------------------- */
+
 @media(max-width: 1300px){
     .contacto .contacto-extra p {
         font-size: 1rem;
     }  
 }
+
 @media(max-width: 1000px){
-    .contacto .contacto-extra p {
-        font-size: 14px;
-    }  
     .contacto , .contacto .contacto-main , .contacto .contacto-main .contacto-info{
         gap: 0px;
     }
+    .contacto .contacto-extra p {
+        font-size: 14px;
+    }  
     .contacto .contacto-main .contacto-titulo , .contacto .contacto-extra h2{
         margin: 0;
     }
 }
+
 @media(max-width: 800px){
     .contacto .contacto-extra p {
         font-size: 13px;
@@ -128,23 +125,28 @@ ease-in-out;
 }
 
 @media(max-width: 500px){
-     .contacto .contacto-main .contacto-info .contacto-item {
+    .contacto .contacto-main .contacto-social {
+       gap: 10px;
+    }
+
+    .contacto .contacto-main .contacto-info .contacto-item {
         height: 50px;
     }
-     .contacto .contacto-main .contacto-social {
-        gap: 10px;
-    }
+
     .contacto .contacto-main .contacto-social .social-btn {
         font-size: 14px;
         height: 30px;
     }
+
     .contacto .contacto-main .contacto-social .social-btn svg {
         width: 15px;
         height: 15px;
     }
+
     .contacto .contacto-main .contacto-titulo, .contacto .contacto-extra h2 {
         height: 30px;
     }
+    
     .contacto .contacto-extra {
         padding: 0px;
         text-align: start;

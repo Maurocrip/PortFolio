@@ -1,35 +1,28 @@
-
 header{
     position: sticky;
     top: 0;
     z-index: 10;
-    display: flex;
-    flex-direction: column;
 }
 
 .header
 {
     display: flex;
-    border: solid 3px black;
     background-color: rgb(6 0 0);
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.header li{
-    list-style: none;
-    padding: 0px 40px;
-}
-
+/*-------------------------OPCIONES DE MENU-------------------------*/
 .header ul{
-    list-style: none;
     display: flex;
     padding: 0px;
 }
 
-.header a{
-    list-style: none;
+.header ul li{
+    padding: 0px 40px;
+}
+
+.header ul li a{
     font-size: larger;
     color: white;
     position: relative;
@@ -44,47 +37,39 @@ header{
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: rgb(255, 255, 255);
     transition: all 0.4s ease;
     transform: translateX(-50%);
 }
 
+.header ul li a:hover {
+    color: var(--color-terceary);
+}
+
 .header ul li a:hover::after {
     width: 100%;
-    background-color: #f600ff;
+    background-color: var(--color-primary);
 }
 
-.header ul li a:hover {
-    color: #ffd500;
-}
-
-.Div-lenguagues
+/*-------------------------BANDERAS-------------------------*/
+.header .Div-lenguagues
 {
     position: absolute;
     right: 2%;
 }
 
-.Button-lenguagues{
-    width: 50px;
+.header .Div-lenguagues .Button-lenguagues{
     height: 33px;
     padding: 0;
     background: none;
 }
 
-.Button-lenguagues:hover{
+.header .Div-lenguagues .Button-lenguagues:hover{
     cursor: pointer;
-    border: solid 2px #ffd500;
+    border: solid 2px var(--color-terceary);
 }
 
-.Button-lenguagues:focus{
-    outline: none;
-}
-
+/*-------------------------RESPONSIVE-------------------------*/
 @media (max-width: 950px) {
-    .header li{
-        padding: 0px 20px;
-    }
-
     .header
     {
         justify-content: flex-start;
@@ -94,42 +79,49 @@ header{
         width: 90%;
         justify-content: space-around;
     }
+
+    .header ul li{
+        padding: 0px 20px;
+    }
 }
+
 @media (max-width: 770px) {
-    .header a{
+    .header ul li a{
         font-size: medium;
     }
 }
 
-@media (max-width: 600px) {
-    .header li{
+@media (max-width: 620px) {
+    .header ul li{
         padding: 0px 10px;
     }
-    .header a{
+    .header ul li a{
         font-size: small;
     }
 }
 
 @media (max-width: 500px) {
-    .Div-lenguagues {
-        position: inherit;
+    
+    .header {
+        width: 99%;
     }
-
-    .header a {
-        font-size: small;
-    }
-
-    .Button-lenguagues {
-        width: 30px;
-        display: flex;
-    }
-
-    .header li{
+    
+    .header ul li{
         display: flex;
         padding: 0px 10px;
         align-items: center;
     }
-    .header {
-        width: 99%;
+
+    .header ul li a {
+        font-size: small;
+    }
+    
+    .header .Div-lenguagues {
+        position: inherit;
+    }
+
+    .header .Div-lenguagues .Button-lenguagues {
+        width: 30px;
+        display: flex;
     }
 }

@@ -1,10 +1,9 @@
 import './Perfil.css';
+import SplitType from "split-type";
 import React, { useRef, useState, useEffect, useContext } from 'react';
 import { gsap } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import { SplitText } from 'gsap/SplitText';
-import SplitType from "split-type";
-//import { useGSAP } from '@gsap/react';
 import { globalContext } from '../../Services/Global';
 import { lenguagueContext } from '../../Services/Lenguague';
 import foto from '../../assets/yo.jpg';
@@ -48,17 +47,6 @@ const Perfil: React.FC = () => {
       setButtonText(contacto ? extrasTitulos.title : extrasTitulos.contact);
     }
   },[spanish])
-
-  /* useGSAP(() => {
-    const split = SplitText.create('#split', { type: 'chars' });
-    gsap.set('#split', { opacity: 1 });
-    gsap.timeline({ repeat: -1, yoyo: true }).from(split.chars, {
-      duration: 0.05,
-      opacity: 0,
-      ease: 'none',
-      stagger: 0.07,
-    });
-  }, [spanish]); */
 
    useEffect(() => {
 

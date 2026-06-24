@@ -160,12 +160,12 @@ export default function Habilidades() {
                       gradientTransform="matrix(1 0 0 -1 0 130)"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop offset="0" stop-color="#e40035"></stop>
-                      <stop offset=".24" stop-color="#f60a48"></stop>
-                      <stop offset=".352" stop-color="#f20755"></stop>
-                      <stop offset=".494" stop-color="#dc087d"></stop>
-                      <stop offset=".745" stop-color="#9717e7"></stop>
-                      <stop offset="1" stop-color="#6c00f5"></stop>
+                      <stop offset="0" stopColor="#e40035"></stop>
+                      <stop offset=".24" stopColor="#f60a48"></stop>
+                      <stop offset=".352" stopColor="#f20755"></stop>
+                      <stop offset=".494" stopColor="#dc087d"></stop>
+                      <stop offset=".745" stopColor="#9717e7"></stop>
+                      <stop offset="1" stopColor="#6c00f5"></stop>
                     </linearGradient>
                     <path
                       fill="url(#IconifyId190a90cb68fe30e818)"
@@ -180,8 +180,8 @@ export default function Habilidades() {
                       gradientTransform="matrix(1 0 0 -1 0 130)"
                       gradientUnits="userSpaceOnUse"
                     >
-                      <stop offset="0" stop-color="#ff31d9"></stop>
-                      <stop offset="1" stop-color="#ff5be1" stop-opacity="0"></stop>
+                      <stop offset="0" stopColor="#ff31d9"></stop>
+                      <stop offset="1" stopColor="#ff5be1" stopOpacity="0"></stop>
                     </linearGradient>
                     <path
                       fill="url(#IconifyId190a90cb68fe30e819)"
@@ -300,7 +300,7 @@ export default function Habilidades() {
                     ></path>
                     <use
                       fill="#FFA712"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       href="#IconifyId190b890049829afc416"
                     ></use>
                     <use
@@ -313,7 +313,7 @@ export default function Habilidades() {
                     ></path>
                     <use
                       fill="#FFA50E"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       href="#IconifyId190b890049829afc417"
                     ></use>
                     <use
@@ -413,10 +413,10 @@ export default function Habilidades() {
                         gradientTransform="translate(38.426 42.169)scale(84.04136)"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#AEB2D5" />
-                        <stop offset=".3" stop-color="#AEB2D5" />
-                        <stop offset=".75" stop-color="#484C89" />
-                        <stop offset="1" stop-color="#484C89" />
+                        <stop stopColor="#AEB2D5" />
+                        <stop offset=".3" stopColor="#AEB2D5" />
+                        <stop offset=".75" stopColor="#484C89" />
+                        <stop offset="1" stopColor="#484C89" />
                       </radialGradient>
                     </defs>
                   </svg>
@@ -476,8 +476,8 @@ export default function Habilidades() {
                         gradientTransform="matrix(.01102 0 0 -.01102 56.808 125.521)"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#909ca9" />
-                        <stop offset="1" stop-color="#ededee" />
+                        <stop offset="0" stopColor="#909ca9" />
+                        <stop offset="1" stopColor="#ededee" />
                       </linearGradient>
                       <linearGradient
                         id="IconifyId1922aa5873f51cb9c18"
@@ -488,8 +488,8 @@ export default function Habilidades() {
                         gradientTransform="matrix(.01102 0 0 -.01102 56.808 125.521)"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#939fab" />
-                        <stop offset="1" stop-color="#dcdee1" />
+                        <stop offset="0" stopColor="#939fab" />
+                        <stop offset="1" stopColor="#dcdee1" />
                       </linearGradient>
                       <radialGradient
                         id="IconifyId1922aa5873f51cb9c19"
@@ -499,8 +499,8 @@ export default function Habilidades() {
                         gradientTransform="matrix(-.01059 -.0016 -.00321 .02118 -64.462 -130.43)"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop offset="0" stop-color="#ee352c" />
-                        <stop offset="1" stop-color="#a91d22" />
+                        <stop offset="0" stopColor="#ee352c" />
+                        <stop offset="1" stopColor="#a91d22" />
                       </radialGradient>
                     </defs>
                     <path
@@ -662,8 +662,8 @@ export default function Habilidades() {
                         y2="91.95"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#9013FE"></stop>
-                        <stop offset="1" stop-color="#6610F2"></stop>
+                        <stop stopColor="#9013FE"></stop>
+                        <stop offset="1" stopColor="#6610F2"></stop>
                       </linearGradient>
                       <linearGradient
                         id="IconifyId190b890049829afc48"
@@ -673,8 +673,8 @@ export default function Habilidades() {
                         y2="70.922"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#fff"></stop>
-                        <stop offset="1" stop-color="#F1E5FC"></stop>
+                        <stop stopColor="#fff"></stop>
+                        <stop offset="1" stopColor="#F1E5FC"></stop>
                       </linearGradient>
                       <filter
                         id="IconifyId190b890049829afc49"
@@ -682,10 +682,10 @@ export default function Habilidades() {
                         height="61.415"
                         x="41.143"
                         y="22.795"
-                        color-interpolation-filters="sRGB"
+                        colorInterpolationFilters="sRGB"
                         filterUnits="userSpaceOnUse"
                       >
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
                         <feColorMatrix
                           in="SourceAlpha"
                           result="hardAlpha"

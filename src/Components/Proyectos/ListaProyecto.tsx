@@ -13,9 +13,9 @@ export default function Proyectos() {
         <div className="Proyectos">
           <h1 style={{ fontSize: "40px" }}>{spanish ? titulos.proyectos : titulos.proyects}</h1>
           <ul className="listaProyectos">
-            {listaProyectos.map((proyecto) => {
+            {listaProyectos.map((proyecto, index) => {
               return (
-                <li>
+                <li key={index}>
                   <Proyecto
                     titulo={spanish ? proyecto.español.titulo : proyecto.ingles.titulo}
                     descripcion={

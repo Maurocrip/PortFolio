@@ -1,0 +1,6 @@
+{
+  "approvedBuilds": {
+    "@swc/core": true,
+    "esbuild": true
+  }
+}

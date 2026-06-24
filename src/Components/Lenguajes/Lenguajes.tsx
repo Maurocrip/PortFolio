@@ -13,8 +13,8 @@ function Lenguajes() {
       <h2>{spanish ? titulos.tecnologías : titulos.technologies}</h2>
       <div className="lenguajes-container">
         {
-          ArrayLenguajes.map((grupo) => (
-            <div className="lenguajes-grupo">
+          ArrayLenguajes.map((grupo, index) => (
+            <div className="lenguajes-grupo" key={index}>
               <h3>{grupo.Type}</h3>
               <div className="lenguajes-lenguajes-iconos">
                 {grupo.lenguajes.map((l) => (

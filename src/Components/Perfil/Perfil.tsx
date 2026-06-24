@@ -7,7 +7,6 @@ import { SplitText } from 'gsap/SplitText';
 import { globalContext } from '../../Services/Global';
 import { lenguagueContext } from '../../Services/Lenguague';
 import foto from '../../assets/yo.jpg';
-import video from '../../assets/fondo.mp4';
 import Contacto from '../Contacto/Contacto';
 
 const Perfil: React.FC = () => {
@@ -211,8 +210,8 @@ const Perfil: React.FC = () => {
         </div>
 
         <div className="perfil-info">
-          <video src={video} autoPlay loop muted className="video-background">
-            <source src={video} type="video/mp4" />
+          <video src="./fondo.mp4" autoPlay loop muted className="video-background">
+            <source src="./fondo.mp4" type="video/mp4" />
           </video>
           <div className='mask' ref={rightPanelRef}>
             <div className="split">
